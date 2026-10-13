@@ -1,0 +1,376 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "candidates"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "candidates": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/candidate"
+      }
+    }
+  },
+  "$defs": {
+    "candidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "slug",
+        "status",
+        "source",
+        "assessment",
+        "checks",
+        "blockers",
+        "artifact",
+        "evidence"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+          "maxLength": 63
+        },
+        "slug": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+          "maxLength": 63
+        },
+        "status": {
+          "enum": [
+            "discovered",
+            "assessed",
+            "migrated",
+            "release-ready",
+            "rejected"
+          ]
+        },
+        "source": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "collection",
+            "location",
+            "origin",
+            "skill_path",
+            "revision",
+            "attribution",
+            "sha256",
+            "license_files",
+            "license_decision"
+          ],
+          "properties": {
+            "collection": {
+              "type": "string",
+              "pattern": "\\S"
+            },
+            "location": {
+              "type": "string",
+              "pattern": "\\S"
+            },
+            "origin": {
+              "type": "string",
+              "pattern": "\\S"
+            },
+            "skill_path": {
+              "type": "string",
+              "pattern": "\\S"
+            },
+            "revision": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "pattern": "\\S"
+            },
+            "attribution": {
+              "type": "string",
+              "pattern": "\\S"
+            },
+            "sha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "license_files": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "path",
+                  "sha256"
+                ],
+                "properties": {
+                  "path": {
+                    "type": "string",
+                    "pattern": "\\S"
+                  },
+                  "sha256": {
+                    "type": "string",
+                    "pattern": "^[a-f0-9]{64}$"
+                  }
+                }
+              }
+            },
+            "license_decision": {
+              "enum": [
+                "unknown",
+                "allowed",
+                "prohibited"
+              ]
+            }
+          }
+        },
+        "assessment": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "format",
+            "resources",
+            "platform",
+            "tools",
+            "runtime",
+            "installation",
+            "license"
+          ],
+          "properties": {
+            "format": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "status",
+                "notes"
+              ],
+              "properties": {
+                "status": {
+                  "enum": [
+                    "unresolved",
+                    "compatible",
+                    "blocked"
+                  ]
+                },
+                "notes": {
+                  "type": "string",
+                  "pattern": "\\S"
+                }
+              }
+            },
+            "resources": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "status",
+                "notes"
+              ],
+              "properties": {
+                "status": {
+                  "enum": [
+                    "unresolved",
+                    "compatible",
+                    "blocked"
+                  ]
+                },
+                "notes": {
+                  "type": "string",
+                  "pattern": "\\S"
+                }
+              }
+            },
+            "platform": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "status",
+                "notes"
+              ],
+              "properties": {
+                "status": {
+                  "enum": [
+                    "unresolved",
+                    "compatible",
+                    "blocked"
+                  ]
+                },
+                "notes": {
+                  "type": "string",
+                  "pattern": "\\S"
+                }
+              }
+            },
+            "tools": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "status",
+                "notes"
+              ],
+              "properties": {
+                "status": {
+                  "enum": [
+                    "unresolved",
+                    "compatible",
+                    "blocked"
+                  ]
+                },
+                "notes": {
+                  "type": "string",
+                  "pattern": "\\S"
+                }
+              }
+            },
+            "runtime": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "status",
+                "notes"
+              ],
+              "properties": {
+                "status": {
+                  "enum": [
+                    "unresolved",
+                    "compatible",
+                    "blocked"
+                  ]
+                },
+                "notes": {
+                  "type": "string",
+                  "pattern": "\\S"
+                }
+              }
+            },
+            "installation": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "status",
+                "notes"
+              ],
+              "properties": {
+                "status": {
+                  "enum": [
+                    "unresolved",
+                    "compatible",
+                    "blocked"
+                  ]
+                },
+                "notes": {
+                  "type": "string",
+                  "pattern": "\\S"
+                }
+              }
+            },
+            "license": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "status",
+                "notes"
+              ],
+              "properties": {
+                "status": {
+                  "enum": [
+                    "unresolved",
+                    "compatible",
+                    "blocked"
+                  ]
+                },
+                "notes": {
+                  "type": "string",
+                  "pattern": "\\S"
+                }
+              }
+            }
+          }
+        },
+        "checks": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "codex_overlap",
+            "prior_work"
+          ],
+          "properties": {
+            "codex_overlap": {
+              "enum": [
+                "pending",
+                "pass",
+                "fail"
+              ]
+            },
+            "prior_work": {
+              "enum": [
+                "pending",
+                "pass",
+                "fail"
+              ]
+            }
+          }
+        },
+        "blockers": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "\\S"
+          },
+          "uniqueItems": true
+        },
+        "artifact": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "\\S"
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "kind",
+              "path",
+              "sha256",
+              "artifact_sha256"
+            ],
+            "properties": {
+              "kind": {
+                "enum": [
+                  "license",
+                  "codex_overlap",
+                  "prior_work",
+                  "compatibility",
+                  "functional",
+                  "security",
+                  "review"
+                ]
+              },
+              "path": {
+                "type": "string",
+                "pattern": "\\S"
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "artifact_sha256": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "pattern": "^[a-f0-9]{64}$"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

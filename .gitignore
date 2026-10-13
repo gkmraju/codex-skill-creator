@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+sources/
+dist/
+tmp/
+
+# Host paths and raw execution output remain local.
+evidence/local-tooling/
+evidence/publication/
