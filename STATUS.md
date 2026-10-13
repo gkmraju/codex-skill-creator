@@ -2,7 +2,7 @@
 
 Updated: 2026-10-13 (Asia/Calcutta).
 
-## Local tooling milestone: complete
+## Local tooling and control-repository publication: complete
 
 Implemented and exercised:
 - Strict inventory/registry schema, identity and duplicate checks.
@@ -28,7 +28,7 @@ The tests exercise synthetic inventory, selection, staging, evidence, release de
 - Complete one real adaptation and exercise it in Codex, including installation acceptance.
 - Complete actual per-skill reviews and behavior tests.
 - Review private information and licenses before any public commit/release.
-- Initial control-project commit/push is now authorized; real skill publication remains a later phase. GitHub CI has not run yet.
+- Control project is published. Windows and Linux CI passed on implementation commit 317f56988395abd13f4a9262c45feae2a86bb8db. Real skill publication remains a later phase.
 - Add scheduling/Telegram only after the deferred integration details are available.
 
 The user selected gkmraju/codex-skill-creator as the publishing destination for this control project. It was verified empty and writable. A real upstream skill collection still needs selection after discovery. No manual shell repair is needed.
@@ -38,10 +38,14 @@ The user selected gkmraju/codex-skill-creator as the publishing destination for 
 Workspace initially contained only .git, on main with no commits. Earlier scaffold writes were not present.
 The fresh-session attachment, additional pasted design, and accessible earlier chat were inspected. No missing original design or historical test evidence was invented.
 Matt Pocock codebase-design and writing-for-agents guidance was applied. Codex skill-creator and official OpenAI packaging documentation were also used.
-Standards/spec manual review and fixes are recorded in docs/review.md. The full Matt Pocock fixed-commit parallel code-review workflow was not run because no commit baseline exists.
+Standards/spec manual review and fixes are recorded in docs/review.md. The full Matt Pocock fixed-commit parallel code-review workflow was not run during initial foundation review, when no commit baseline existed. Implementation commit 317f56988395abd13f4a9262c45feae2a86bb8db is now available as a baseline for subsequent changes.
 
 Execution: sandbox shell startup failed with helper_unknown_error: setup refresh had errors; Node's trusted process also exited. Explicitly reviewed escalated shell calls worked. Git used a command-scoped safe.directory exception; global Git configuration was not changed.
 
-Initial commit and push are being prepared under the user's explicit authorization. Raw host execution logs are preserved locally and excluded from Git; docs/verification.md contains the public-safe summary. No real skill packages, Telegram posts, or installed-source edits are part of this publication.
+Published to https://github.com/gkmraju/codex-skill-creator under the user's explicit authorization.
+Implementation commit: 317f56988395abd13f4a9262c45feae2a86bb8db.
+Completed CI: https://github.com/gkmraju/codex-skill-creator/actions/runs/38407304142 (success on Windows and Linux).
+A documentation follow-up records these verified outcomes; it does not change tooling behavior.
+Raw host execution logs are preserved locally and excluded from Git; docs/verification.md contains the public-safe summary. No real skill packages, Telegram posts, or installed-source edits are part of this publication.
 
-Next concrete step: complete the authorized control-project commit/push and inspect GitHub CI, then perform read-only source discovery and assess one selected real candidate.
+Next concrete step: perform read-only source discovery, record current ranking and overlap findings, and propose one candidate for a complete migration.

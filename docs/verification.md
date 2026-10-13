@@ -13,4 +13,4 @@ Tests use synthetic sources and review evidence. They exercise inventory, assess
 
 Raw logs are saved locally by scripts/verify.py and ignored by Git because they may contain host-specific paths. This summary reports actual observed results without publishing those paths.
 
-GitHub Actions configuration is present. Hosted results must be checked separately; no queued run is described as passing.
+GitHub Actions completed successfully on implementation commit 317f56988395abd13f4a9262c45feae2a86bb8db, on both ubuntu-latest and windows-latest. Completed run: https://github.com/gkmraju/codex-skill-creator/actions/runs/38407304142. This validates tooling, not any real skill's behavior.

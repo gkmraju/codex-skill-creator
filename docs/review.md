@@ -26,6 +26,6 @@ The end-to-end tests use synthetic sources and reviewer reports and are not evid
 
 ## Review workflow limit
 
-Matt Pocock's full code-review skill requires a resolved fixed commit point and a nonempty diff against HEAD before parallel Standards/Spec reviews. This repository has no commits. That full skill workflow was not run; the review above is a local manual review informed by its two axes, not a claimed independent or fixed-commit review. No subagents were used.
+Matt Pocock's full code-review skill requires a resolved fixed commit point and a nonempty diff against HEAD before parallel Standards/Spec reviews. At initial foundation review, this repository had no commits. That full skill workflow was not run; the review above is a local manual review informed by its two axes, not a claimed independent or fixed-commit review. No subagents were used.
 
-The next review can use the first reviewed local commit as a baseline once commit history exists.
+Implementation commit 317f56988395abd13f4a9262c45feae2a86bb8db is now pushed and can serve as the baseline for the next fixed-commit review.
