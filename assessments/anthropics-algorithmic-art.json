@@ -1,0 +1,37 @@
+{
+  "candidate": "anthropics-algorithmic-art",
+  "source_sha256": "3c9ed0bb1a5baef5b660f231e7d20b191557ca41a1ab950348021126f4784390",
+  "notice": "Heuristic findings only; no compatibility or license approval is inferred.",
+  "findings": {
+    "format": [],
+    "resources": [
+      "LICENSE.txt",
+      "SKILL.md",
+      "templates/generator_template.js",
+      "templates/viewer.html"
+    ],
+    "platform": [],
+    "tools": [
+      {
+        "file": "SKILL.md",
+        "markers": [
+          "browser"
+        ]
+      }
+    ],
+    "runtime": [
+      {
+        "file": "SKILL.md",
+        "markers": [
+          "Claude",
+          "claude"
+        ]
+      }
+    ],
+    "installation": [],
+    "license": {
+      "decision": "unknown",
+      "files": []
+    }
+  }
+}

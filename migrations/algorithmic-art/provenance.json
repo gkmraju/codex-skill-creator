@@ -1,0 +1,13 @@
+{
+  "origin": "https://github.com/anthropics/skills",
+  "skill_path": "skills/algorithmic-art",
+  "revision": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+  "attribution": "Anthropic, PBC.",
+  "sha256": "3c9ed0bb1a5baef5b660f231e7d20b191557ca41a1ab950348021126f4784390",
+  "license_files": [
+    {
+      "path": "skills/algorithmic-art/LICENSE.txt",
+      "sha256": "52b223c318576d65c32f70cb745f31352730e9f4c2c2c2570a66ce700f4f5a64"
+    }
+  ]
+}

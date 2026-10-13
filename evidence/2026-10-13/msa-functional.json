@@ -1,0 +1,93 @@
+{
+  "kind": "functional",
+  "outcome": "pass",
+  "reviewer": "Codex primary agent with independent grr_forward_test evaluation where referenced",
+  "recorded_at": "2026-10-13T15:36:12.118128+00:00",
+  "summary": "18 tests and independent realistic quality-technician workflow passed after observed numerical defects were fixed and retested. Public retest capture normalizes only the workspace prefix; numerical outputs and decisions unchanged and reviewed. Added reviewed exact-byte .gitattributes rule only; analyzer/instructions/tests unchanged, prior behavior captures remain applicable. Final artifact structure and source-license hashes rechecked.",
+  "source_sha256": "2c7c56fc24a59dbf3615c420c8d19dd7e48367a6d02858634472089dfa36ef70",
+  "source": {
+    "origin": "https://github.com/jherrodthomas/automotive-skills-suite",
+    "skill_path": "msa-gage-rr-builder",
+    "revision": "96afe776dd79d5bdb61b1a266894baffeb0581e8",
+    "attribution": "Jherrod Thomas (Copyright 2026; MIT)",
+    "sha256": "2c7c56fc24a59dbf3615c420c8d19dd7e48367a6d02858634472089dfa36ef70",
+    "license_files": [
+      {
+        "path": "LICENSE",
+        "sha256": "59f093721092674c6aec94b4453bfc192a278b281f43c8ea2117fc592f307b59"
+      }
+    ]
+  },
+  "artifact_sha256": "65601aadb6c4cc1d29e8ea3344252bd0f73ffccc597b35e96f93701d07c1bef2",
+  "references": [
+    "evidence/2026-10-13/msa-tests.txt",
+    "evidence/2026-10-13/msa-independent-evaluation.md"
+  ],
+  "environment": "Windows; Python3.13.13; Codex0.162.0; installed Edge desktop/mobile rendering",
+  "cases": [
+    {
+      "prompt": "Analyze the supplied synthetic study for a quality technician",
+      "expected": "Correct independently derived ANOVA, transparent limitations and populated reports",
+      "observed": "Independent exact arithmetic matched; gage R&R SD2.5, study24.6034%, tolerance37.5%, ndc5; calibration certification not inferred",
+      "outcome": "pass",
+      "outputs": [
+        {
+          "path": "evidence/2026-10-13/msa-results.json",
+          "sha256": "a02cce49f483b4cac1d15f03654c89d0a81d8fb47b86e230aa2fd71fa52d22cd"
+        },
+        {
+          "path": "evidence/2026-10-13/msa-report.html",
+          "sha256": "e2ae14ea3b312ba97a46323a4339d58c9683a55fd0c1e32c132b3f523243e154"
+        },
+        {
+          "path": "evidence/2026-10-13/msa-independent-evaluation.md",
+          "sha256": "65ac55129731b685d7d714a290ef36bb6d55d298e0f086b240230c5790071c89"
+        }
+      ]
+    },
+    {
+      "prompt": "Reject invalid studies, numerical loss and overwrites",
+      "expected": "Invalid cases exit2 without replacing existing files or creating invalid reports",
+      "observed": "18 tests passed; all independent numerical reproductions rejected after fixes",
+      "outcome": "pass",
+      "outputs": [
+        {
+          "path": "evidence/2026-10-13/msa-tests.txt",
+          "sha256": "040202e67dce3cadd3db0f101447a1a2863397fd60f9a9aa3ad69b4d41ccc094"
+        },
+        {
+          "path": "evidence/2026-10-13/msa-independent-retest.json",
+          "sha256": "3a1281505733695cd007250c7f5515b6ca78a008e0584f777a7d2a6bbaf6d8a4"
+        }
+      ]
+    },
+    {
+      "prompt": "Install in a fresh Codex project and discover the skill",
+      "expected": "Native repo-scope skill enabled and installed script operational",
+      "observed": "skills/list returned enabled repo skill; final installed script generated JSON/HTML",
+      "outcome": "pass",
+      "outputs": [
+        {
+          "path": "evidence/2026-10-13/msa-native-discovery.json",
+          "sha256": "febdb9fc82b9c6d8ffc682ce7f12ffb5d097f152b0809add0b3bf8153aacaaa5"
+        },
+        {
+          "path": "evidence/2026-10-13/msa-installed-execution.txt",
+          "sha256": "9b7365a875254be7b713039c82e916bd5ce067a798ab9123fa59e88f8253b71a"
+        }
+      ]
+    },
+    {
+      "prompt": "Render report on desktop and mobile",
+      "expected": "Readable report, correct rows, no browser errors",
+      "observed": "Edge screenshots visually inspected; seven component rows, no document overflow; table intentionally scrolls on mobile",
+      "outcome": "pass",
+      "outputs": [
+        {
+          "path": "evidence/2026-10-13/msa-html-check.json",
+          "sha256": "3c3880d71e4898aff286e11b66c83222f1a97a0702334136fd492ca3d7826789"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "gage": {
+    "id": "DEMO-01",
+    "units": "mm",
+    "characteristic": "Synthetic dimension"
+  },
+  "study_design": {
+    "num_parts": 3,
+    "num_operators": 2,
+    "num_trials": 2
+  },
+  "tolerance": {
+    "lower": -20,
+    "upper": 20
+  },
+  "raw_data": [
+    {
+      "part_id": "P1",
+      "operator": "A",
+      "trial": 1,
+      "measurement_value": -13.5
+    },
+    {
+      "part_id": "P1",
+      "operator": "A",
+      "trial": 2,
+      "measurement_value": -12.5
+    },
+    {
+      "part_id": "P1",
+      "operator": "B",
+      "trial": 1,
+      "measurement_value": -7.5
+    },
+    {
+      "part_id": "P1",
+      "operator": "B",
+      "trial": 2,
+      "measurement_value": -6.5
+    },
+    {
+      "part_id": "P2",
+      "operator": "A",
+      "trial": 1,
+      "measurement_value": -0.5
+    },
+    {
+      "part_id": "P2",
+      "operator": "A",
+      "trial": 2,
+      "measurement_value": 0.5
+    },
+    {
+      "part_id": "P2",
+      "operator": "B",
+      "trial": 1,
+      "measurement_value": -0.5
+    },
+    {
+      "part_id": "P2",
+      "operator": "B",
+      "trial": 2,
+      "measurement_value": 0.5
+    },
+    {
+      "part_id": "P3",
+      "operator": "A",
+      "trial": 1,
+      "measurement_value": 9.5
+    },
+    {
+      "part_id": "P3",
+      "operator": "A",
+      "trial": 2,
+      "measurement_value": 10.5
+    },
+    {
+      "part_id": "P3",
+      "operator": "B",
+      "trial": 1,
+      "measurement_value": 9.5
+    },
+    {
+      "part_id": "P3",
+      "operator": "B",
+      "trial": 2,
+      "measurement_value": 10.5
+    }
+  ]
+}

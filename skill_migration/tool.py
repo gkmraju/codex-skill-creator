@@ -295,7 +295,7 @@ def artifact_errors(root, c):
             raise Invalid("Package needs applicable license and notice files")
         for p in files:
             rel = p.relative_to(package).as_posix()
-            allowed = rel in required or rel.startswith(("skills/" + c["slug"] + "/", "licenses/"))
+            allowed = rel in required or rel in {"LICENSE", ".gitattributes", ".github/workflows/validate.yml"} or rel.startswith(("skills/" + c["slug"] + "/", "licenses/"))
             if not allowed:
                 raise Invalid(f"Unexpected package file: {rel}")
             if p.suffix.lower() in {".md", ".json", ".py", ".sh", ".ps1", ".yaml", ".yml", ".txt"}:

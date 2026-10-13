@@ -1,0 +1,25 @@
+{
+  "kind": "license",
+  "outcome": "pass",
+  "reviewer": "Codex assistant (AI review)",
+  "recorded_at": "2026-10-13T14:08:38.710406+00:00",
+  "summary": "Read the per-skill Apache-2.0 license including modification/redistribution conditions and copyright notice. Preserve license, attribution and changed-file notices. Applies to the skill files only; no bundled p5.js distribution is approved.",
+  "source_sha256": "3c9ed0bb1a5baef5b660f231e7d20b191557ca41a1ab950348021126f4784390",
+  "source": {
+    "origin": "https://github.com/anthropics/skills",
+    "skill_path": "skills/algorithmic-art",
+    "revision": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+    "attribution": "Anthropic, PBC.",
+    "sha256": "3c9ed0bb1a5baef5b660f231e7d20b191557ca41a1ab950348021126f4784390",
+    "license_files": [
+      {
+        "path": "skills/algorithmic-art/LICENSE.txt",
+        "sha256": "52b223c318576d65c32f70cb745f31352730e9f4c2c2c2570a66ce700f4f5a64"
+      }
+    ]
+  },
+  "references": [
+    "https://github.com/anthropics/skills/tree/dbd4588f9e1033efb41dad4bef2f7947c8993d44/skills/algorithmic-art",
+    "reports/2026-10-13/discovery.json"
+  ]
+}

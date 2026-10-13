@@ -1,0 +1,2 @@
+Final corrected installed script exercised successfully.
+Validated study; wrote results.json and report.html

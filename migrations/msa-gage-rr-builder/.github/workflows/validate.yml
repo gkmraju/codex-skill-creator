@@ -1,0 +1,20 @@
+name: Validate Gauge R&R
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  test:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ['3.10', '3.13']
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Mathematical, validation and CLI tests
+        run: python -B -m unittest discover -s skills/msa-gage-rr-builder/tests -v
+      - name: Generate demonstration
+        run: python -B skills/msa-gage-rr-builder/scripts/analyze_msa.py skills/msa-gage-rr-builder/examples/balanced-study.json --output-dir sample-report

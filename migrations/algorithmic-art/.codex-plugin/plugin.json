@@ -1,0 +1,6 @@
+{
+  "name": "codex-skill-algorithmic-art",
+  "version": "0.1.0",
+  "description": "Create original generative artwork in code with reproducible seeds and interactive parameter exploration. Use for algorithmic art, flow fields, particle systems, or p5.js sketches; use a site workflow for general websites and an image workflow for raster-only requests.",
+  "skills": "./skills/"
+}

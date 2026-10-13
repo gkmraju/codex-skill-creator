@@ -7,11 +7,11 @@ A local control repository for discovering, assessing, adapting, validating, and
 ## Confirmed scope
 
 - Control repository: gkmraju/codex-skill-creator.
-- Later individual repositories: gkmraju/codex-skill-<slug>, one skill per repository.
+- Authorized individual repositories: gkmraju/codex-skill-<slug>, one skill per repository.
 - Compare equivalent Codex skills and prior internal work before migration.
 - Preserve upstream identity, applicable licenses, notices, and original files.
-- Focus on popular Claude skills on GitHub. No specific source collection is selected yet.
-- Build and review locally first. Initial control-repository publication is now authorized. Individual skill releases, scheduled discovery, and Telegram reporting remain later phases.
+- Search impactful Claude-origin skills across all audiences and the wider public Codex ecosystem. The first Anthropic sample remains unfinished; keep searching past failed candidates.
+- Daily target: at least one fully adapted, behaviorally tested, installable, publicly published single-skill repository. Publication is authorized once the gates pass. The daily 07:00 IST job and compact Telegram reporting are configured.
 
 The implementation choices are Python 3.11+, JSON records, YAML skill metadata, explicit reviewer evidence, separate source snapshots and editable outputs, and deterministic ZIP packages. These are current choices, not invented historical decisions.
 
@@ -92,8 +92,14 @@ The source and output paths must stay distinct. Do not inventory generated migra
 
 ## Limits and next step
 
-This completes local tooling, not the whole migration project. Select a real source collection next, then finish one candidate through functional evaluation. There is no live star ranking, semantic duplicate search, automatic translation, scheduler, Telegram sender, GitHub publisher, or plugin installation acceptance result yet.
+The first real daily migration is complete: [Codex Gauge R&R](https://github.com/gkmraju/codex-skill-msa-gage-rr-builder), with native discovery, installed execution, independent evaluation and completed Windows/Linux CI. Discovery and selection remain evidence-driven agent work; the CLI does not automatically translate, rank or publish skills. Plugin marketplace installation is not verified.
 
 Hashes establish file integrity and invalidate stale evidence. They cannot prove that reviewers actually exercised a workflow. Human review is still needed for licenses, semantic overlap, tool equivalence, binary/private contents, and claimed functional outcomes. Content scanning checks common patterns and cannot guarantee that all private information is absent.
 
 See [release gates](docs/release-gates.md), [architecture](docs/architecture.md), and [publication procedure](docs/publication.md).
+
+## Daily runs and Telegram
+
+A daily 07:00 IST Codex app automation is active. See [daily workflow](docs/daily-workflow.md) and [Telegram setup/reporting](docs/telegram.md). [Today's completed run](reports/2026-10-13/completed-run.md) records the first published skill; the earlier journey remains historical. Reports distinguish completed migrations from assessed drafts and estimated impact from measured results.
+
+Current discovery audience: software developers only, per the latest user instruction. The first published measurement skill predates that scope change.

@@ -1,0 +1,23 @@
+test_cli_invalid_input_creates_no_output (test_analysis.AnalysisTests.test_cli_invalid_input_creates_no_output) ... ok
+test_cli_reports_and_overwrite_refusal (test_analysis.AnalysisTests.test_cli_reports_and_overwrite_refusal) ... ok
+test_constant_study (test_analysis.AnalysisTests.test_constant_study) ... ok
+test_hand_derived_anova (test_analysis.AnalysisTests.test_hand_derived_anova) ... ok
+test_html_escapes_metadata (test_analysis.AnalysisTests.test_html_escapes_metadata) ... ok
+test_incomplete_and_duplicate_design (test_analysis.AnalysisTests.test_incomplete_and_duplicate_design) ... ok
+test_invalid_measurements (test_analysis.AnalysisTests.test_invalid_measurements) ... ok
+test_invalid_tolerance (test_analysis.AnalysisTests.test_invalid_tolerance) ... ok
+test_local_residual_underflow_is_rejected (test_analysis.AnalysisTests.test_local_residual_underflow_is_rejected) ... ok
+test_minimum_ndc_one (test_analysis.AnalysisTests.test_minimum_ndc_one) ... ok
+test_mixed_scale_centering_loss_is_rejected (test_analysis.AnalysisTests.test_mixed_scale_centering_loss_is_rejected) ... ok
+test_negative_interaction_clipped (test_analysis.AnalysisTests.test_negative_interaction_clipped) ... ok
+test_optional_tolerance (test_analysis.AnalysisTests.test_optional_tolerance) ... ok
+test_row_order_invariance (test_analysis.AnalysisTests.test_row_order_invariance) ... ok
+test_scale_and_offset_invariance (test_analysis.AnalysisTests.test_scale_and_offset_invariance) ... ok
+test_tiny_scale_is_rejected_instead_of_false_constant (test_analysis.AnalysisTests.test_tiny_scale_is_rejected_instead_of_false_constant) ... ok
+test_unsupported_attribute_study (test_analysis.AnalysisTests.test_unsupported_attribute_study) ... ok
+test_zero_gage_variance (test_analysis.AnalysisTests.test_zero_gage_variance) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.707s
+
+OK

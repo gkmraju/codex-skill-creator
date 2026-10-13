@@ -1,0 +1,30 @@
+{
+  "command": [
+    "C:\\Users\\RAJU\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+    "-B",
+    "migrations\\msa-gage-rr-builder\\skills\\msa-gage-rr-builder\\scripts\\analyze_msa.py",
+    "tmp\\grr-forward-eval\\mixed-local-underflow.json",
+    "--output-dir",
+    "tmp\\grr-forward-eval\\mixed-local-underflow-final-retest"
+  ],
+  "exit_code": 2,
+  "stdout": "",
+  "stderr": "ERROR: Nonzero ANOVA residual below supported numerical scale; rescale units",
+  "output_exists": false,
+  "analyzer_sha256": "876650cb721ef9d4af298b864f37b7dc22ce86040038156477ecbe49c2850cb5",
+  "demo_retest": {
+    "command": [
+      "C:\\Users\\RAJU\\AppData\\Local\\Programs\\Python\\Python313\\python.exe",
+      "-B",
+      "migrations\\msa-gage-rr-builder\\skills\\msa-gage-rr-builder\\scripts\\analyze_msa.py",
+      "migrations\\msa-gage-rr-builder\\skills\\msa-gage-rr-builder\\examples\\balanced-study.json",
+      "--output-dir",
+      "tmp\\grr-forward-eval\\demo-final-accepted"
+    ],
+    "exit_code": 0,
+    "stdout": "Validated study; wrote results.json and report.html",
+    "stderr": "",
+    "results_identical": true
+  },
+  "capture_normalization": "Workspace absolute prefix replaced with dot for public privacy; raw capture retained in ignored tmp/grr-forward-eval. Numerical outputs unchanged."
+}

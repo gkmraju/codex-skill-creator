@@ -1,0 +1,6 @@
+{
+  "name": "codex-skill-msa-gage-rr-builder",
+  "version": "0.1.0",
+  "description": "Analyze balanced crossed variable Gauge R&R measurement studies, separating equipment, operator, interaction and part variation with reproducible JSON and HTML reports. Use for repeated numerical measurements by multiple operators; attribute agreement and calibration certification require other methods.",
+  "skills": "./skills/"
+}

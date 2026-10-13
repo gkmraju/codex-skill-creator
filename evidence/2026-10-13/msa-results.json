@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "method": "balanced crossed random-effects ANOVA; interaction retained",
+  "gage": {
+    "id": "DEMO-01",
+    "units": "mm",
+    "characteristic": "Synthetic dimension"
+  },
+  "design": {
+    "parts": 3,
+    "operators": 2,
+    "trials": 2,
+    "measurements": 12
+  },
+  "anova": {
+    "part": {
+      "sum_of_squares": 800.0,
+      "degrees_of_freedom": 2,
+      "mean_square": 400.0
+    },
+    "operator": {
+      "sum_of_squares": 12.0,
+      "degrees_of_freedom": 1,
+      "mean_square": 12.0
+    },
+    "interaction": {
+      "sum_of_squares": 24.0,
+      "degrees_of_freedom": 2,
+      "mean_square": 12.0
+    },
+    "repeatability": {
+      "sum_of_squares": 3.0,
+      "degrees_of_freedom": 6,
+      "mean_square": 0.5
+    }
+  },
+  "total_sum_of_squares": 839.0,
+  "raw_variance_estimates": {
+    "repeatability": 0.5,
+    "operator": 0.0,
+    "interaction": 5.75,
+    "part": 97.0
+  },
+  "components": {
+    "repeatability": {
+      "variance": 0.5,
+      "standard_deviation": 0.7071067811865476,
+      "study_variation": 4.242640687119286,
+      "percent_contribution": 0.48426150121065376,
+      "percent_study_variation": 6.9588900063922114,
+      "percent_tolerance": 10.606601717798213
+    },
+    "operator": {
+      "variance": 0.0,
+      "standard_deviation": 0.0,
+      "study_variation": 0.0,
+      "percent_contribution": 0.0,
+      "percent_study_variation": 0.0,
+      "percent_tolerance": 0.0
+    },
+    "interaction": {
+      "variance": 5.75,
+      "standard_deviation": 2.3979157616563596,
+      "study_variation": 14.387494569938157,
+      "percent_contribution": 5.569007263922518,
+      "percent_study_variation": 23.598744169812335,
+      "percent_tolerance": 35.968736424845396
+    },
+    "part": {
+      "variance": 97.0,
+      "standard_deviation": 9.848857801796104,
+      "study_variation": 59.093146810776624,
+      "percent_contribution": 93.94673123486683,
+      "percent_study_variation": 96.92612198724697,
+      "percent_tolerance": 147.73286702694156
+    },
+    "reproducibility": {
+      "variance": 5.75,
+      "standard_deviation": 2.3979157616563596,
+      "study_variation": 14.387494569938157,
+      "percent_contribution": 5.569007263922518,
+      "percent_study_variation": 23.598744169812335,
+      "percent_tolerance": 35.968736424845396
+    },
+    "gage_rr": {
+      "variance": 6.25,
+      "standard_deviation": 2.5,
+      "study_variation": 15.0,
+      "percent_contribution": 6.053268765133172,
+      "percent_study_variation": 24.603391565256143,
+      "percent_tolerance": 37.5
+    },
+    "total": {
+      "variance": 103.25,
+      "standard_deviation": 10.161200716450788,
+      "study_variation": 60.96720429870473,
+      "percent_contribution": 100.0,
+      "percent_study_variation": 100.0,
+      "percent_tolerance": 152.4180107467618
+    }
+  },
+  "ndc": 5,
+  "tolerance": {
+    "lower": -20,
+    "upper": 20
+  },
+  "warnings": [],
+  "limitations": [
+    "No interaction pooling, significance tests or confidence intervals.",
+    "No attribute agreement, bias, linearity, calibration certification or automatic acceptance decision.",
+    "Representative parts, independent repetitions and randomized measurement order require study-owner review.",
+    "Results depend on measurement units, study sampling and random-effects assumptions."
+  ],
+  "input_sha256": "73bfd3fa83d1a8d08a8d3f407e0e5415cef9037bd30bd38ef3d7afa8ed39f94f",
+  "software_version": "0.1.0"
+}

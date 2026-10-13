@@ -1,0 +1,12 @@
+{
+  "codex_version": "codex-cli 0.162.0",
+  "installation": "isolated project .agents/skills/msa-gage-rr-builder",
+  "request": "skills/list forceReload=true",
+  "observed": {
+    "name": "msa-gage-rr-builder",
+    "description": "Analyze balanced crossed variable Gauge R&R measurement studies, separating equipment, operator, interaction and part variation with reproducible JSON and HTML reports. Use for repeated numerical measurements by multiple operators; attribute agreement and calibration certification require other methods.",
+    "scope": "repo",
+    "enabled": true,
+    "pluginId": null
+  }
+}

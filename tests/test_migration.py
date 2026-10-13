@@ -310,5 +310,18 @@ class MigrationTests(unittest.TestCase):
             t.stage(self.root, self.c)
 
 
+    def test_selected_repository_support_files_remain_bounded(self):
+        self.ready()
+        folder = self.root / self.c["artifact"]
+        (folder / "LICENSE").write_text("Preserved notice.")
+        (folder / ".gitattributes").write_text("* -text\n")
+        workflow = folder / ".github/workflows/validate.yml"
+        workflow.parent.mkdir(parents=True)
+        workflow.write_text("name: Validate\n")
+        self.assertEqual([], t.artifact_errors(self.root, self.c))
+        (folder / "publish.py").write_text("Unexpected publishing code")
+        self.assertTrue(any("Unexpected package file" in x for x in t.artifact_errors(self.root, self.c)))
+
+
 if __name__ == "__main__":
     unittest.main()

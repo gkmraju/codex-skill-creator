@@ -8,3 +8,8 @@ tmp/
 # Host paths and raw execution output remain local.
 evidence/local-tooling/
 evidence/publication/
+
+.env*
+!.env.telegram.example
+evidence/telegram/
+evidence/private/

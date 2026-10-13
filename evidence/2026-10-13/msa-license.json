@@ -1,0 +1,25 @@
+{
+  "kind": "license",
+  "outcome": "pass",
+  "reviewer": "Codex primary agent; scoped source and catalogue inspection",
+  "recorded_at": "2026-10-13T15:18:59.726798+00:00",
+  "summary": "Inspected root MIT notice at immutable upstream revision, allows modification and redistribution with original copyright and license retained verbatim. Archive maps to extracted msa-gage-rr-builder member.",
+  "source_sha256": "2c7c56fc24a59dbf3615c420c8d19dd7e48367a6d02858634472089dfa36ef70",
+  "source": {
+    "origin": "https://github.com/jherrodthomas/automotive-skills-suite",
+    "skill_path": "msa-gage-rr-builder",
+    "revision": "96afe776dd79d5bdb61b1a266894baffeb0581e8",
+    "attribution": "Jherrod Thomas (Copyright 2026; MIT)",
+    "sha256": "2c7c56fc24a59dbf3615c420c8d19dd7e48367a6d02858634472089dfa36ef70",
+    "license_files": [
+      {
+        "path": "LICENSE",
+        "sha256": "59f093721092674c6aec94b4453bfc192a278b281f43c8ea2117fc592f307b59"
+      }
+    ]
+  },
+  "references": [
+    "reports/2026-10-13/completion-candidate-research.md",
+    "https://github.com/jherrodthomas/automotive-skills-suite"
+  ]
+}

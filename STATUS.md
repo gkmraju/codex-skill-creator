@@ -1,3 +1,30 @@
+# Current checkpoint: 2026-10-13
+
+Future audience is software developers only, per the latest user instruction. Today's Gauge R&R run finished under the earlier all-audience scope; its real measurement audience is preserved in the historical report.
+
+Today's genuine migration run is complete: one Claude-origin skill recreated, tested, natively discovered in Codex, independently evaluated, packaged and published.
+
+- Public skill: https://github.com/gkmraju/codex-skill-msa-gage-rr-builder
+- Skill commit: 5ffea93e5279aef0a22356c5252aa29841796639
+- Completed four-job Windows/Ubuntu Python3.10/3.13 CI: https://github.com/gkmraju/codex-skill-msa-gage-rr-builder/actions/runs/38424653582
+- 18 analyzer tests passed; independent exact arithmetic and instruction-following evaluation passed after numerical defects were corrected.
+- Codex0.162.0 enabled repo-scope discovery and final installed-script execution verified; Edge desktop/mobile reports inspected.
+- Control tooling:44 tests,42 passed,2 Windows platform skips; registry/release checks passed.
+- Telegram completed-run message42 confirmed; credentials and receipts stay ignored.
+- Daily automation active at 07:00 Asia/Calcutta. No manual user action needed for this run.
+
+Scope: balanced crossed variable Gauge R&R with retained interaction and populated JSON/HTML. No equipment qualification, certification, confidence intervals or automatic suitability decision.
+
+Source: Jherrod Thomas automotive-skills-suite revision96afe776dd79d5bdb61b1a266894baffeb0581e8. MIT notice, archive digest and extracted-tree provenance retained. Scoped installed/public/prior-work checks found no matching operational Codex workflow; universal absence is not claimed. All audiences remain eligible for future discovery.
+
+algorithmic-art is now rejected after broader public Codex overlap was found; its draft and earlier scoped-review history are preserved.
+
+Current details: reports/2026-10-13/completed-run.md and completed-run.json. Artifact-bound evidence is in evidence/2026-10-13. Source snapshots, package and publication checkout remain ignored locally. Matt Pocock primary-source research and writing-for-agents guidance were applied; full fixed-commit two-axis review was not claimed.
+
+## Historical checkpoints
+
+Earlier records below describe past stages; the current checkpoint above supersedes any unfinished-work descriptions.
+
 # Project status
 
 Updated: 2026-10-13 (Asia/Calcutta).
@@ -49,3 +76,31 @@ A documentation follow-up records these verified outcomes; it does not change to
 Raw host execution logs are preserved locally and excluded from Git; docs/verification.md contains the public-safe summary. No real skill packages, Telegram posts, or installed-source edits are part of this publication.
 
 Next concrete step: perform read-only source discovery, record current ranking and overlap findings, and propose one candidate for a complete migration.
+
+## Daily sample and Telegram reporting: 2026-10-13
+
+Daily Codex skill migration automation is active at 07:00 Asia/Calcutta, attached to this chat. The next regular run after creation is 2026-10-14. The app scheduler is used; this is not a remotely hosted service.
+
+Today's sample inspected 13 repository records and 2 actual Anthropic skills at an immutable revision. frontend-design was rejected for overlap. algorithmic-art is an assessed, partly adapted local candidate; no completed migration or release readiness is claimed. Original snapshots and license hashes are preserved.
+
+Current local checks: 42 tests ran (40 passed, 2 platform-dependent skips). Two-candidate registry and adapted skill authoring structure passed. Real functional/browser/install/dependency/final acceptance remains pending. Reports are in reports/2026-10-13/; local draft is in migrations/algorithmic-art/.
+
+Telegram env and report renderer/sender are created. Credentials are kept in ignored .env.telegram and are not printed. Delivery requires enabled configuration and an explicit send; confirmed/attempted receipts are ignored under evidence/telegram/. The user explicitly authorized today's journey report. Estimated impact and actual observed results are separated.
+
+Changes from this sample and Telegram integration are local and uncommitted; initial control-project publication remains the earlier verified checkpoint. No individual skill repository was created or published.
+
+Next: perform a real generative-art scenario in isolation, capture evidence, resolve dependencies/installation, then pass all release gates for the first package.
+
+Today's Telegram delivery was confirmed by the Bot API (message id 41). The daily automation now uses the report sender when configured/enabled, with duplicate-attempt protection.
+
+## Scope correction and compact reporting: 2026-10-13
+
+The user clarified that a daily job finishes only when at least one impactful Claude-origin skill is fully adapted, genuinely Codex-usable, tested/installed, and publicly published. Search all audiences and the wider public Codex ecosystem. Continue discovery past failed candidates without the earlier three-candidate cap.
+
+The user accepted a separate single-skill repository preserving source attribution/license/revision instead of a literal whole-collection fork, and authorized publication after the gates pass. The 07:00 IST automation and project contract now reflect this scope.
+
+Telegram outward messages are compact; detailed scorecards remain in dated JSON/reports. Published labels require linked repository, actual commit, and successful completed CI evidence. The current algorithmic-art draft remains unfinished and is not a daily completion.
+
+Local reporting checks passed after the scope change. New changes remain local and uncommitted; no individual skill has been published yet.
+
+Final compact-report checks: 43 tests ran, 41 passed and 2 platform skips. Telegram confirmed an edit to the original journey message (id 41), now 636 characters. No extra sample message was sent.
