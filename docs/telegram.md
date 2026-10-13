@@ -1,39 +1,18 @@
-# Telegram reporting
+# Compact Telegram report
 
-Credentials live in the ignored .env.telegram file. Fill TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID (numeric destination or public @channel), then set TELEGRAM_ENABLED=true. Do not paste the bot token into chat or commit it. For a channel, add the bot with permission to post; for a private chat, start the bot before delivery.
+Credentials stay in the ignored .env.telegram file. Existing configured values and delivery receipts are preserved. Template and sender: skill_migration/telegram.py; message header: CODEX SKILL LAB.
 
-Preview a real run report:
+Preview/send an actual dated run JSON:
 
-    python -m skill_migration.telegram reports/2026-10-13/run.json --preview reports/2026-10-13/telegram-preview.html
+    python -B -m skill_migration.telegram reports/YYYY-MM-DD/run.json --preview reports/YYYY-MM-DD/telegram-preview.html
+    python -B -m skill_migration.telegram reports/YYYY-MM-DD/run.json --send
 
-Send an explicitly authorized report to the configured destination:
+Use a unique run_id and measured duration with its scope. The report includes the actual skill/outcome, software-developer benefit, essential verification and public fork link. Keep detailed evidence in files, not the outward message.
 
-    python -m skill_migration.telegram reports/2026-10-13/run.json --send
+Full report JSON retains the sender's required fields: run_id, date, duration_seconds, measurement_scope, next_step, repositories_discovered, skills_reviewed, migrations_completed and skills. Each skill records name/outcome, usefulness/audience, impact with evidence, changes, validation, limitations, learning and HTTPS links. No discovery is performed by this queue workflow: repositories_discovered is zero unless actual discovery occurred; reviewed count is the number of distinct actual skill decisions.
 
-The default env is .env.telegram. --env .env selects a different ignored file if desired. Process environment values override file values; credentials are never printed by this tool.
+Published entries require publication.repository_url, commit_sha, ci_conclusion=success and matching ci_url from actual inspected results. The queue's publication record additionally verifies fork metadata and artifact/source identity before marking used. Presence of fields alone is not proof of external facts.
 
-## Report content
+Delivery requires --send and enabled valid env configuration. Credentials/destination IDs are never printed. Ignored evidence/telegram/ receipts prevent blind retries after uncertain delivery; inspect an existing attempt before retrying. Archived historical reports remain historical.
 
-Use a dated JSON report with:
-- run_id, date, measured duration_seconds, measurement_scope, next_step.
-- repositories_discovered (repository discovery count, not skill count).
-- skills_reviewed and migrations_completed, matching distinct skill outcomes.
-- skills entries with name, outcome (rejected/deferred/migrated/release-ready), usefulness, audience, impact, impact_evidence, actual changes, validation, limitations, developer learning, and inspectable HTTPS links.
-
-Expected impact must be identified as an estimate unless measured adoption/time-savings evidence exists. A staged or partly adapted candidate remains deferred and contributes zero completed migrations. State real workflow and installation limits. Keep host paths, private repository names, captured private outputs, credentials, and other sensitive information out of outward reports.
-
-The renderer uses readable Telegram HTML formatting and escapes report text. It checks Telegram's sendMessage length limit before delivery. A local browser preview offers visual formatting, not proof of Telegram rendering.
-
-Delivery needs explicit --send plus enabled valid configuration. Receipts under ignored evidence/telegram/ retain hashes, attempt status, and Telegram's confirmed message id; they do not store raw tokens or destination ids. Duplicate run ids to the same destination are refused. Transport failure can follow actual delivery, so the attempted receipt also prevents blind retries. Inspect the destination and receipt before manually retrying. Do not run concurrent writers against the same report.
-
-Official API reference checked 2026-10-13: https://core.telegram.org/bots/api#sendmessage
-
-## Compact outward format
-
-The default renderer now keeps only the primary outcome/skill, benefit and audience, essential verification, checked count and measured run time, and link. Unfinished work shows a short blocker/next action. Rejected-candidate detail, separate impact scorecards, source popularity, and developer-learning sections stay in the full JSON/report.
-
-A published outcome requires publication.repository_url for the individual gkmraju/codex-skill-<slug>, the actual 40-character commit_sha, successful ci_conclusion, and matching CI run URL. These fields must come from inspected actual results; their presence alone cannot prove the claims.
-
-The daily job targets a complete public skill across all audiences and keeps searching without a fixed candidate cap. Independent single-skill repositories are authorized after verification gates pass.
-
-Current audience filter: software developers only for future selections and reports. State the actual developer benefit. Preserve historical reports with their truthful original audience.
+A pending or blocked conversion is reported as unfinished. Future reports target software developers; estimated impact is never presented as measured adoption or savings.

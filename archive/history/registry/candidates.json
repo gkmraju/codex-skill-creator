@@ -1,0 +1,240 @@
+{
+  "schema_version": 1,
+  "candidates": [
+    {
+      "id": "anthropics-algorithmic-art",
+      "slug": "algorithmic-art",
+      "status": "rejected",
+      "source": {
+        "collection": "anthropics",
+        "location": "sources/anthropics-skills",
+        "origin": "https://github.com/anthropics/skills",
+        "skill_path": "skills/algorithmic-art",
+        "revision": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+        "attribution": "Anthropic, PBC.",
+        "sha256": "3c9ed0bb1a5baef5b660f231e7d20b191557ca41a1ab950348021126f4784390",
+        "license_files": [
+          {
+            "path": "skills/algorithmic-art/LICENSE.txt",
+            "sha256": "52b223c318576d65c32f70cb745f31352730e9f4c2c2c2570a66ce700f4f5a64"
+          }
+        ],
+        "license_decision": "allowed"
+      },
+      "assessment": {
+        "format": {
+          "status": "compatible",
+          "notes": "Codex-scoped metadata, bounded trigger, and local supporting references structurally checked."
+        },
+        "resources": {
+          "status": "compatible",
+          "notes": "Original LICENSE and template/reference files preserved; modified viewer marked. Templates are explicitly unfinished starting points."
+        },
+        "platform": {
+          "status": "unresolved",
+          "notes": "Not yet reviewed."
+        },
+        "tools": {
+          "status": "unresolved",
+          "notes": "Not yet reviewed."
+        },
+        "runtime": {
+          "status": "compatible",
+          "notes": "Claude artifacts/tool assumptions removed; outputs are ordinary files with optional available Codex handoff tools."
+        },
+        "installation": {
+          "status": "unresolved",
+          "notes": "Not yet reviewed."
+        },
+        "license": {
+          "status": "unresolved",
+          "notes": "Not yet reviewed."
+        }
+      },
+      "checks": {
+        "codex_overlap": "fail",
+        "prior_work": "pass"
+      },
+      "blockers": [
+        "Wider public search found existing Codex availability via Skilloop and PIAX; supersedes earlier installed-only overlap pass. Draft preserved."
+      ],
+      "artifact": "migrations/algorithmic-art",
+      "evidence": [
+        {
+          "kind": "license",
+          "path": "evidence/2026-10-13/algorithmic-art-license.json",
+          "sha256": "de3085ebeae327862127838538a9ef6626280d51e16672149c6aa56e375f7b8e",
+          "artifact_sha256": null
+        },
+        {
+          "kind": "codex_overlap",
+          "path": "evidence/2026-10-13/algorithmic-art-codex_overlap.json",
+          "sha256": "03102c1856eac702af8eac536e72ba8e611730c57f1a6a810bcbe12a0924bd02",
+          "artifact_sha256": null
+        },
+        {
+          "kind": "prior_work",
+          "path": "evidence/2026-10-13/algorithmic-art-prior_work.json",
+          "sha256": "a53947091107ad3cc78928334bb63f145ac72a2814d3f9d330336fd5238ca835",
+          "artifact_sha256": null
+        }
+      ]
+    },
+    {
+      "id": "anthropics-frontend-design",
+      "slug": "frontend-design",
+      "status": "rejected",
+      "source": {
+        "collection": "anthropics",
+        "location": "sources/anthropics-skills",
+        "origin": "https://github.com/anthropics/skills",
+        "skill_path": "skills/frontend-design",
+        "revision": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+        "attribution": "Anthropic, PBC.",
+        "sha256": "056f081dbf480eb888025c9e7080e0036b396732588f8eb620178940a632b8fb",
+        "license_files": [],
+        "license_decision": "unknown"
+      },
+      "assessment": {
+        "format": {
+          "status": "unresolved",
+          "notes": "Not yet reviewed."
+        },
+        "resources": {
+          "status": "unresolved",
+          "notes": "Not yet reviewed."
+        },
+        "platform": {
+          "status": "unresolved",
+          "notes": "Not yet reviewed."
+        },
+        "tools": {
+          "status": "blocked",
+          "notes": "Installed Sites already covers website/UI construction and design. The candidate's aesthetic process offers refinements, not a distinct non-overlapping workflow under this project's strict gate."
+        },
+        "runtime": {
+          "status": "unresolved",
+          "notes": "Not yet reviewed."
+        },
+        "installation": {
+          "status": "unresolved",
+          "notes": "Not yet reviewed."
+        },
+        "license": {
+          "status": "unresolved",
+          "notes": "Not yet reviewed."
+        }
+      },
+      "checks": {
+        "codex_overlap": "fail",
+        "prior_work": "pending"
+      },
+      "blockers": [
+        "Material overlap with the installed Sites website/UI design workflow; no distinct migration selected."
+      ],
+      "artifact": null,
+      "evidence": []
+    },
+    {
+      "id": "automotive-msa-gage-rr-builder",
+      "slug": "msa-gage-rr-builder",
+      "status": "release-ready",
+      "source": {
+        "collection": "automotive",
+        "location": "sources/automotive-extracted",
+        "origin": "https://github.com/jherrodthomas/automotive-skills-suite",
+        "skill_path": "msa-gage-rr-builder",
+        "revision": "96afe776dd79d5bdb61b1a266894baffeb0581e8",
+        "attribution": "Jherrod Thomas (Copyright 2026; MIT)",
+        "sha256": "2c7c56fc24a59dbf3615c420c8d19dd7e48367a6d02858634472089dfa36ef70",
+        "license_files": [
+          {
+            "path": "LICENSE",
+            "sha256": "59f093721092674c6aec94b4453bfc192a278b281f43c8ea2117fc592f307b59"
+          }
+        ],
+        "license_decision": "allowed"
+      },
+      "assessment": {
+        "format": {
+          "status": "compatible",
+          "notes": "Valid Codex frontmatter, scoped trigger, exactly one skill; quick_validate passed."
+        },
+        "resources": {
+          "status": "compatible",
+          "notes": "All input/method/example references resolve; obsolete office helpers removed; analyzer and 18 tests exercised."
+        },
+        "platform": {
+          "status": "compatible",
+          "notes": "Portable pathlib and Python standard library; Windows 3.13 exercised locally; Linux/Python3.10 external CI separate."
+        },
+        "tools": {
+          "status": "compatible",
+          "notes": "No API/network/credentials/office dependencies in analyzer; local JSON/HTML and Python only."
+        },
+        "runtime": {
+          "status": "compatible",
+          "notes": "Native Codex 0.162.0 skills/list discovered enabled repo-scope skill; independent forward evaluation completed."
+        },
+        "installation": {
+          "status": "compatible",
+          "notes": "Whole skill copied to isolated .agents/skills; installed final script generated reports. Plugin marketplace not tested."
+        },
+        "license": {
+          "status": "compatible",
+          "notes": "Applicable root MIT retained byte-for-byte; archive/revision/extracted-tree attribution documented."
+        }
+      },
+      "checks": {
+        "codex_overlap": "pass",
+        "prior_work": "pass"
+      },
+      "blockers": [],
+      "artifact": "migrations/msa-gage-rr-builder",
+      "evidence": [
+        {
+          "kind": "license",
+          "path": "evidence/2026-10-13/msa-license.json",
+          "sha256": "14efafe9ac5fc7fdbc524431c5da660e52d125cae9a58aa887f477299fa88001",
+          "artifact_sha256": null
+        },
+        {
+          "kind": "codex_overlap",
+          "path": "evidence/2026-10-13/msa-codex_overlap.json",
+          "sha256": "2567b35fe4a2e26c0f63609c4709204912e38643cc38c955badb36cd151a5628",
+          "artifact_sha256": null
+        },
+        {
+          "kind": "prior_work",
+          "path": "evidence/2026-10-13/msa-prior_work.json",
+          "sha256": "e26215fcfe3b0807884271928645824dd81d6b13d9cfae403d4caee9fedcd9e3",
+          "artifact_sha256": null
+        },
+        {
+          "kind": "compatibility",
+          "path": "evidence/2026-10-13/msa-compatibility.json",
+          "sha256": "d4b98ad4c8879586f0ea3af0620893e6f2340777bb59043e7a7b4ab99236e022",
+          "artifact_sha256": "65601aadb6c4cc1d29e8ea3344252bd0f73ffccc597b35e96f93701d07c1bef2"
+        },
+        {
+          "kind": "functional",
+          "path": "evidence/2026-10-13/msa-functional.json",
+          "sha256": "4d437c834b95eb5b9bb20118e4f0a77e6039218fbf1f5724ec29eb6457c08e29",
+          "artifact_sha256": "65601aadb6c4cc1d29e8ea3344252bd0f73ffccc597b35e96f93701d07c1bef2"
+        },
+        {
+          "kind": "security",
+          "path": "evidence/2026-10-13/msa-security.json",
+          "sha256": "ae3324e969967fbc3edd5d7ef68cb93bc297693c52cf4dd16e48998c801344e1",
+          "artifact_sha256": "65601aadb6c4cc1d29e8ea3344252bd0f73ffccc597b35e96f93701d07c1bef2"
+        },
+        {
+          "kind": "review",
+          "path": "evidence/2026-10-13/msa-review.json",
+          "sha256": "5ceaa3455b276ae9adb39e93d90cbbc3f0e4af7071fd08e8ddbe3735b92991f4",
+          "artifact_sha256": "65601aadb6c4cc1d29e8ea3344252bd0f73ffccc597b35e96f93701d07c1bef2"
+        }
+      ]
+    }
+  ]
+}

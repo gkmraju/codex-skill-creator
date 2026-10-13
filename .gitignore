@@ -13,3 +13,6 @@ evidence/publication/
 !.env.telegram.example
 evidence/telegram/
 evidence/private/
+
+# Private historical checkouts, caches and publication worktrees.
+/archive/local/

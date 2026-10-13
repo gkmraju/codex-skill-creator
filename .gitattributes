@@ -6,3 +6,6 @@ evidence/** -text
 
 # Preserve the accepted user-curated queue hash.
 registry/*.csv -text
+
+# Historical evidence and notices remain byte-for-byte recoverable.
+archive/** -text

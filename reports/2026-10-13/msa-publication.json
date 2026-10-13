@@ -1,9 +1,0 @@
-{
-  "repository_url": "https://github.com/gkmraju/codex-skill-msa-gage-rr-builder",
-  "commit_sha": "5ffea93e5279aef0a22356c5252aa29841796639",
-  "artifact_sha256": "65601aadb6c4cc1d29e8ea3344252bd0f73ffccc597b35e96f93701d07c1bef2",
-  "published_at": "2026-10-13T15:37:00.374128+00:00",
-  "ci_conclusion": "success",
-  "ci_url": "https://github.com/gkmraju/codex-skill-msa-gage-rr-builder/actions/runs/38424653582",
-  "previous_commit_sha": "f66c73d25a1f4e353e183fba30c9cc76b97c74a1"
-}

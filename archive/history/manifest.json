@@ -1,0 +1,47 @@
+{
+  "archived_at": "2026-10-13T16:31:46.641432+00:00",
+  "reason": "Superseded workflows removed from the active CSV-only pipeline",
+  "moves": [
+    {
+      "original": "registry/candidates.json",
+      "archived": "archive/history/registry/candidates.json"
+    },
+    {
+      "original": "assessments",
+      "archived": "archive/history/assessments"
+    },
+    {
+      "original": "evidence/2026-10-13",
+      "archived": "archive/history/evidence/2026-10-13"
+    },
+    {
+      "original": "migrations",
+      "archived": "archive/history/migrations"
+    },
+    {
+      "original": "reports",
+      "archived": "archive/history/reports"
+    },
+    {
+      "original": "sources",
+      "archived": "archive/local/sources"
+    },
+    {
+      "original": "dist",
+      "archived": "archive/local/dist"
+    },
+    {
+      "original": "tmp",
+      "archived": "archive/local/tmp"
+    },
+    {
+      "original": "evidence/local-tooling",
+      "archived": "archive/local/evidence/local-tooling"
+    },
+    {
+      "original": "evidence/publication",
+      "archived": "archive/local/evidence/publication"
+    }
+  ],
+  "notes": "Historical records retain original paths and hashes; restore archive/history with archive/local into the original layout to replay them. Archive is not startup context."
+}

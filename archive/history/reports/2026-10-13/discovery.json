@@ -1,0 +1,126 @@
+{
+  "captured_at": "2026-10-13T13:55:27.066384+00:00",
+  "query": "claude skills in:name,description stars:>1000",
+  "sort": "stars desc",
+  "search_url": "https://api.github.com/search/repositories?q=claude+skills+in%3Aname%2Cdescription+stars%3A%3E1000&sort=stars&order=desc&per_page=10",
+  "limitation": "Search-specific ranking plus explicitly compared sources; not a complete global skills census. Repository-wide license labels are not per-skill redistribution approval.",
+  "repositories": [
+    {
+      "repository": "affaan-m/ECC",
+      "stars": 278292,
+      "url": "https://github.com/affaan-m/ECC",
+      "description": "The agent harness performance optimization system. Skills, instincts, memory, security, and research-first development for Claude Code, Codex, Opencode, Cursor and beyond.",
+      "archived": false,
+      "license": "MIT",
+      "default_branch": "main"
+    },
+    {
+      "repository": "multica-ai/andrej-karpathy-skills",
+      "stars": 219394,
+      "url": "https://github.com/multica-ai/andrej-karpathy-skills",
+      "description": "A single CLAUDE.md file to improve Claude Code behavior, derived from Andrej Karpathy's observations on LLM coding pitfalls.",
+      "archived": false,
+      "license": null,
+      "default_branch": "main"
+    },
+    {
+      "repository": "Graphify-Labs/graphify",
+      "stars": 126056,
+      "url": "https://github.com/Graphify-Labs/graphify",
+      "description": "Turn any codebase, with its docs, SQL schemas, configs, and PDFs, into a queryable knowledge graph. A /graphify skill for Claude Code, Cursor, Codex, and Gemini CLI: local deterministic AST parsing, every edge explained, no vector store.",
+      "archived": false,
+      "license": "Apache-2.0",
+      "default_branch": "v8"
+    },
+    {
+      "repository": "tt-a1i/archify",
+      "stars": 82888,
+      "url": "https://github.com/tt-a1i/archify",
+      "description": "Turn any idea, plan, or codebase into a beautiful interactive diagram. An agent skill for Claude Code, Codex, and more.",
+      "archived": false,
+      "license": "MIT",
+      "default_branch": "main"
+    },
+    {
+      "repository": "ComposioHQ/awesome-claude-skills",
+      "stars": 76996,
+      "url": "https://github.com/ComposioHQ/awesome-claude-skills",
+      "description": "A curated list of awesome Claude Skills, resources, and tools for customizing Claude AI workflows",
+      "archived": false,
+      "license": null,
+      "default_branch": "master"
+    },
+    {
+      "repository": "hesreallyhim/awesome-claude-code",
+      "stars": 55571,
+      "url": "https://github.com/hesreallyhim/awesome-claude-code",
+      "description": "A hand-picked collection of the finest of resources for the most awesome of agents, Claude Code, the undisputed champion of coding companions, from the unstoppable team at Anthropic PBC (no affiliation). A delectable showcase of top tier skills, ambidextrous agents, scintillating status lines, top notch developer tooling, and also we have plugins",
+      "archived": false,
+      "license": "NOASSERTION",
+      "default_branch": "main"
+    },
+    {
+      "repository": "coreyhaines31/marketingskills",
+      "stars": 54492,
+      "url": "https://github.com/coreyhaines31/marketingskills",
+      "description": "Marketing skills for Claude Code and AI agents. CRO, copywriting, SEO, analytics, and growth engineering.",
+      "archived": false,
+      "license": "MIT",
+      "default_branch": "main"
+    },
+    {
+      "repository": "Imbad0202/academic-research-skills",
+      "stars": 51745,
+      "url": "https://github.com/Imbad0202/academic-research-skills",
+      "description": "Academic Research Skills for Claude Code: research \u2192 write \u2192 review \u2192 revise \u2192 finalize",
+      "archived": false,
+      "license": "NOASSERTION",
+      "default_branch": "main"
+    },
+    {
+      "repository": "K-Dense-AI/scientific-agent-skills",
+      "stars": 48695,
+      "url": "https://github.com/K-Dense-AI/scientific-agent-skills",
+      "description": "Turn any AI agent into an AI Scientist. The #1 Agent Skills library for science, used by 250,000+ scientists worldwide. 177 ready-to-use validated skills plus 100+ scientific databases covering biology, chemistry, medicine, and drug discovery. Compatible with Cursor, Claude Code, Codex, Pi, Antigravity, and the open Agent Skills standard.",
+      "archived": false,
+      "license": "MIT",
+      "default_branch": "main"
+    },
+    {
+      "repository": "zhaoxuya520/reverse-skill",
+      "stars": 41605,
+      "url": "https://github.com/zhaoxuya520/reverse-skill",
+      "description": "Reverse Engineering / Authorized Penetration Testing / Security Research Skill Router Pack AI-powered routing + On-demand toolchain bootstrapping + Self-evolving knowledge base  Supports Claude Code, Kiro, Cursor, Cline, and other AI coding clients \u9006\u5411/\u6e17\u900f/\u5b89\u5168\u6280\u80fd\u8def\u7531\u5305 - AI \u81ea\u52a8\u8def\u7531 + \u6309\u9700\u81ea\u4e3e\u5de5\u5177\u94fe + \u81ea\u52a8\u8fdb\u5316\u7ecf\u9a8c\u5e93 | \u652f\u6301 Claude Code / Kiro / Cursor / Cline \u7b49\u4ee3\u7801 AI \u5ba2\u6237\u7aef",
+      "archived": false,
+      "license": "MIT",
+      "default_branch": "main"
+    },
+    {
+      "repository": "anthropics/skills",
+      "stars": 180854,
+      "url": "https://github.com/anthropics/skills",
+      "description": "Public repository for Agent Skills",
+      "archived": false,
+      "license": null,
+      "default_branch": "main"
+    },
+    {
+      "repository": "obra/superpowers",
+      "stars": 298482,
+      "url": "https://github.com/obra/superpowers",
+      "description": "An agentic skills framework & software development methodology that works.",
+      "archived": false,
+      "license": "MIT",
+      "default_branch": "main"
+    },
+    {
+      "repository": "mattpocock/skills",
+      "stars": 288988,
+      "url": "https://github.com/mattpocock/skills",
+      "description": "Skills for Real Engineers. Straight from my .agents directory.",
+      "archived": false,
+      "license": "MIT",
+      "default_branch": "main"
+    }
+  ]
+}

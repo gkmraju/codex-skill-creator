@@ -1,109 +1,101 @@
-# Codex Skill Creator
+<div align="center">
 
-A local control repository for discovering, assessing, adapting, validating, and packaging individual skills for Codex. It records decisions and evidence; it does not automatically translate instructions or publish.
+# 🧩 CODEX SKILL LAB
 
-**Current milestone:** working local tooling, tested with synthetic fixtures. No real skills have been migrated or released. See [STATUS.md](STATUS.md).
+### Curated Claude skills. Rebuilt for Codex. Published for developers.
 
-## Confirmed scope
+[![Queue: 154 sources](https://img.shields.io/badge/queue-154_sources-6366f1?style=flat-square)](registry/claude_only_skills_with_stars.csv)
+[![Audience: developers](https://img.shields.io/badge/audience-software_developers-0891b2?style=flat-square)](docs/daily-workflow.md)
+[![Daily: 07:00 IST](https://img.shields.io/badge/daily-07%3A00_IST-f59e0b?style=flat-square)](docs/daily-workflow.md)
+[![Validate](https://github.com/gkmraju/codex-skill-creator/actions/workflows/validate.yml/badge.svg)](https://github.com/gkmraju/codex-skill-creator/actions/workflows/validate.yml)
 
-- Control repository: gkmraju/codex-skill-creator.
-- Authorized individual repositories: gkmraju/codex-skill-<slug>, one skill per repository.
-- Compare equivalent Codex skills and prior internal work before migration.
-- Preserve upstream identity, applicable licenses, notices, and original files.
-- Search impactful Claude-origin skills across all audiences and the wider public Codex ecosystem. The first Anthropic sample remains unfinished; keep searching past failed candidates.
-- Daily target: at least one fully adapted, behaviorally tested, installable, publicly published single-skill repository. Publication is authorized once the gates pass. The daily 07:00 IST job and compact Telegram reporting are configured.
+[Source queue](registry/claude_only_skills_with_stars.csv) · [Workflow](docs/daily-workflow.md) · [Current checkpoint](STATUS.md) · [Telegram](docs/telegram.md)
 
-The implementation choices are Python 3.11+, JSON records, YAML skill metadata, explicit reviewer evidence, separate source snapshots and editable outputs, and deterministic ZIP packages. These are current choices, not invented historical decisions.
+</div>
 
-## Setup and checks
+---
 
-From the project directory:
+## One queue. One workflow. One schedule.
 
-    python -m venv .venv
-    .venv\Scripts\python -m pip install -r requirements.txt
-    .venv\Scripts\python -m unittest discover -s tests -v
-    .venv\Scripts\python -m skill_migration validate
+Work through the manually curated CSV **from top to bottom**. Pick the next unused row, recreate one selected skill for Codex, and publish it in an actual upstream fork containing the converted skill and its supporting resources.
 
-Activation is optional. The shorter commands below assume the environment's Python is on PATH. Local checks also work with the confirmed host Python and installed dependencies.
+The queue is already screened by the user. Its original order and approximate star counts are preserved.
 
-To preserve actual check results and logs, run python scripts/verify.py. Results are saved locally under evidence/local-tooling/ and excluded from Git. A public-safe summary is in docs/verification.md. See docs/review.md for the scope and limitations of the local review.
+```mermaid
+flowchart LR
+    A["Next unused CSV row"] --> B["Select a developer skill"]
+    B --> C["Convert for Codex"]
+    C --> D["Test and verify installation"]
+    D --> E["Create upstream fork"]
+    E --> F["Publish and pass CI"]
+    F --> G["Mark used · Telegram report"]
+```
 
-The GitHub workflow runs the same tests and validation on Windows and Linux. Check the repository's Actions page for current results; local checks alone do not establish GitHub CI success.
+## What happens each day
 
-## Local workflow
+| Stage | Result |
+| :--- | :--- |
+| **Pick** | One pending or resumable row; no repeated discovery |
+| **Convert** | Codex instructions, working resources and installation |
+| **Verify** | License/provenance, actual behavior and release evidence |
+| **Fork & publish** | gkmraju/codex-skill-<slug>, source lineage retained, successful CI |
+| **Record** | Durable queue progress and a compact Telegram report |
 
-1. Select an approved source collection and obtain a local checkout at a known revision. Inventory its parent collection:
+A row becomes **completed only after publication and successful CI**. Interrupted work resumes from its checkpoint. Unsuitable or blocked sources retain their reasons.
 
-       python -m skill_migration inventory sources/upstream --collection-id upstream --origin https://github.com/owner/repo --attribution "Upstream authors" --revision FULL_COMMIT_SHA
+## Run locally
 
-   This reads source files without executing scripts. It adds candidates to registry/candidates.json. Repeating an inventory that creates duplicate identifiers, slugs, or source identities fails without changing the registry. Inspect new candidates before tracking the registry publicly: source.location is local and can contain a machine path. Use a workspace-relative location for checked-in records when feasible.
+Python 3.10+ is required for the queue and conversion tooling.
 
-2. Collect compatibility hints:
+```text
+python -m pip install -r requirements.txt
+python -B scripts/next_candidate.py next
+```
 
-       python -m skill_migration assess upstream-skill-name
+Start the selected row with its actual skill path:
 
-   The report is written to assessments/<id>.json. Findings are heuristic and never approve compatibility, license, or tool equivalence. Inspect all resources and scripts yourself.
+```text
+python -B scripts/next_candidate.py mark 2 in-progress --skill-path skills/example
+```
 
-3. Complete license, Codex overlap, and prior-work reviews. Update source.license_files with collection-relative paths and SHA-256 hashes. Record evidence using [docs/registry.md](docs/registry.md). Set check outcomes and license_decision only after the evidence exists.
+After the conversion gates, real fork publication and CI pass:
 
-       python -m skill_migration record-evidence upstream-skill-name license evidence/license.json
-       python -m skill_migration record-evidence upstream-skill-name codex_overlap evidence/overlap.json
-       python -m skill_migration record-evidence upstream-skill-name prior_work evidence/prior.json
+```text
+python -B scripts/next_candidate.py mark 2 completed --candidate source-skill-id --publication evidence/publication/example.json
+```
 
-4. Stage the selected candidate:
+See the [workflow](docs/daily-workflow.md) for skipped/blocked rows and publication details.
 
-       python -m skill_migration stage upstream-skill-name
+## A small, durable workspace
 
-   sources/<id>/<source-hash>/ preserves the original skill, licenses, and provenance. migrations/<slug>/ is the editable individual repository folder. Staging refuses to overwrite either area and records an adaptation blocker. It is an unchanged copy for review, not a completed migration. Assess and resolve instructions, runtime dependencies, and installation assumptions in this folder.
+| Path | Purpose |
+| :--- | :--- |
+| [registry/claude_only_skills_with_stars.csv](registry/claude_only_skills_with_stars.csv) | Original 154-source queue |
+| [registry/queue-state.json](registry/queue-state.json) | Used, skipped, blocked and resumable rows |
+| [registry/queue-policy.json](registry/queue-policy.json) | Accepted screening and CSV fingerprint |
+| [registry/candidates.json](registry/candidates.json) | Current conversion and evidence ledger |
+| migrations/ | Reviewed single-skill packages |
+| reports/ | Concise current run reports |
+| [archive/](archive/README.md) | Recoverable historical work; excluded from daily context |
 
-5. Adapt one skill completely. Update docs/migration.md, docs/compatibility.md, and docs/evaluation.md inside its output folder. Update the registry's assessments and blockers. Exercise realistic activation and non-activation prompts, failure behavior, and supporting scripts in isolated permitted resources. Capture actual outputs.
+## Built to spend fewer tokens
 
-6. Get the current artifact fingerprint and record compatibility, functional, security, and final review evidence against it:
+A **fresh standalone run at 07:00 IST** reads one queue row and a small checkpoint. No broad discovery, star refresh or fresh Codex-equivalence search. Scripts handle repeatable mechanics; tests focus on changed behavior, and independent evaluation is reserved for meaningful complexity.
 
-       python -m skill_migration fingerprint upstream-skill-name
-       python -m skill_migration record-evidence upstream-skill-name functional evidence/functional.json
+The schedule uses the existing configured model with medium reasoning. Each run stops after one successful skill. A daily release is a target; unfinished work is reported honestly.
 
-   Repeat record-evidence for compatibility, security, and review. Set status to migrated after adaptation, and to release-ready only after all release requirements are complete. Any output change invalidates artifact-bound evidence.
+## Telegram delivery
 
-7. Validate and package:
+Keep credentials in the ignored .env.telegram file. The existing **CODEX SKILL LAB** report includes the skill, developer benefit, essential verification, measured duration and repository link.
 
-       python -m skill_migration validate
-       python -m skill_migration release-check upstream-skill-name
-       python -m skill_migration package upstream-skill-name
+[Template and sender](skill_migration/telegram.py) · [Configuration](docs/telegram.md)
 
-   The ZIP is written to dist/codex-skill-<slug>-<artifact-hash-prefix>.zip. It contains only the reviewed individual repository folder. Extraction into a fresh directory produces a reviewable skills-only Codex plugin. Packages have stable file order and timestamps and refuse overwrite.
+## Verification
 
-Global --root and --registry options go before the subcommand. Errors return a nonzero exit code. Run python -m skill_migration --help for the command surface.
+```text
+python -B scripts/verify.py
+```
 
-## Project layout
+Control-project tests check queue progression, validation, evidence and reporting. Each converted skill also needs its own behavioral/install checks and successful CI.
 
-- skill_migration/: command implementation; filesystem and evidence rules are shared by all commands.
-- schemas/registry.schema.json: strict candidate and registry format.
-- registry/candidates.json: candidate ledger, initially empty.
-- assessments/: heuristic reports, created when requested.
-- evidence/: reviewer reports and captured outputs, created during real work.
-- sources/: ignored local upstream checkouts and preserved snapshots.
-- migrations/: editable, reviewable individual repository outputs.
-- dist/: ignored release ZIPs.
-- tests/: synthetic fixture tests; fixtures never enter the real registry.
-- docs/: architecture, release gates, workflow contract, and publication procedure.
-
-The source and output paths must stay distinct. Do not inventory generated migrations as new sources.
-
-## Limits and next step
-
-The first real daily migration is complete: [Codex Gauge R&R](https://github.com/gkmraju/codex-skill-msa-gage-rr-builder), with native discovery, installed execution, independent evaluation and completed Windows/Linux CI. Discovery and selection remain evidence-driven agent work; the CLI does not automatically translate, rank or publish skills. Plugin marketplace installation is not verified.
-
-Hashes establish file integrity and invalidate stale evidence. They cannot prove that reviewers actually exercised a workflow. Human review is still needed for licenses, semantic overlap, tool equivalence, binary/private contents, and claimed functional outcomes. Content scanning checks common patterns and cannot guarantee that all private information is absent.
-
-See [release gates](docs/release-gates.md), [architecture](docs/architecture.md), and [publication procedure](docs/publication.md).
-
-## Daily runs and Telegram
-
-A daily 07:00 IST Codex app automation is active. See [daily workflow](docs/daily-workflow.md) and [Telegram setup/reporting](docs/telegram.md). [Today's completed run](reports/2026-10-13/completed-run.md) records the first published skill; the earlier journey remains historical. Reports distinguish completed migrations from assessed drafts and estimated impact from measured results.
-
-Current discovery audience: software developers only, per the latest user instruction. The first published measurement skill predates that scope change.
-
-## Curated queue
-
-Daily work now uses the user-supplied [154-source CSV](registry/claude_only_skills_with_stars.csv). Run python -B scripts/next_candidate.py to see only the next row. Fresh Codex-equivalence screening and broad discovery are waived for this accepted list. See [queue workflow](docs/daily-workflow.md); progress is separate in registry/queue-state.json.
+Source authors retain attribution. Applicable licenses and immutable source revisions accompany every derivative. Historical work is preserved in the [archive](archive/README.md).

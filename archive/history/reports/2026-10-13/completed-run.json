@@ -1,0 +1,48 @@
+{
+  "run_id": "2026-10-13-grr-completion",
+  "date": "2026-10-13",
+  "duration_seconds": 1480.526447,
+  "measurement_scope": "Selected-skill run wall time; earlier discovery excluded",
+  "next_step": "Future 07:00 IST discovery targets software developers only.",
+  "repositories_discovered": 1,
+  "skills_reviewed": 1,
+  "migrations_completed": 1,
+  "skills": [
+    {
+      "name": "MSA Gauge R&R",
+      "outcome": "published",
+      "usefulness": "Separates equipment, operator and part variation from repeated measurements.",
+      "audience": "quality teams, technicians, labs and students.",
+      "impact": "Reproducible local measurement studies without paid analysis software.",
+      "impact_evidence": "Potential benefit inferred from supported workflow; no adoption or savings measured.",
+      "changes": "Replaced empty Claude workbook scaffold with a Python standard-library ANOVA analyzer, populated JSON/HTML, Codex instructions and portable installation.",
+      "validation": "18 tests; independent exact arithmetic; native Codex install; Windows/Linux CI passed.",
+      "limitations": "Balanced crossed variable studies only; no automatic acceptance, calibration certification or confidence intervals; no physical equipment validated.",
+      "learning": "Separate %contribution from %study variation, retain interaction explicitly, and reject precision loss instead of reporting false zero.",
+      "links": [
+        {
+          "label": "Public skill",
+          "url": "https://github.com/gkmraju/codex-skill-msa-gage-rr-builder"
+        },
+        {
+          "label": "Completed CI",
+          "url": "https://github.com/gkmraju/codex-skill-msa-gage-rr-builder/actions/runs/38424653582"
+        },
+        {
+          "label": "Original Claude source",
+          "url": "https://github.com/jherrodthomas/automotive-skills-suite"
+        }
+      ],
+      "publication": {
+        "repository_url": "https://github.com/gkmraju/codex-skill-msa-gage-rr-builder",
+        "commit_sha": "5ffea93e5279aef0a22356c5252aa29841796639",
+        "ci_conclusion": "success",
+        "ci_url": "https://github.com/gkmraju/codex-skill-msa-gage-rr-builder/actions/runs/38424653582"
+      }
+    }
+  ],
+  "discovery_context": "Earlier broader discovery is documented separately in completion-candidate-research.md; the checked count here covers this completed implementation run only.",
+  "started_at": "2026-10-13T15:14:02.304916+00:00",
+  "completed_at": "2026-10-13T15:38:42.831363+00:00",
+  "publication_followup": "Exact-byte Git rules finalized after original Telegram delivery; final published commit and CI updated. Original reported run duration retains its stated measurement endpoint."
+}

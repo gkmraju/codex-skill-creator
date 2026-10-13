@@ -76,7 +76,7 @@ def render(report):
         return html.escape(value, quote=True)
     minutes, seconds = divmod(round(report["duration_seconds"]), 60)
     published = sum(x["outcome"] == "published" for x in report["skills"])
-    lines = ["\U0001f9e9 <b>Codex skills</b> \u00b7 " + brief(report["date"], 45),
+    lines = ["\U0001f9e9 <b>CODEX SKILL LAB</b> \u00b7 " + brief(report["date"], 45),
              f"<b>{published} published</b> \u00b7 {report['skills_reviewed']} checked \u00b7 {minutes}m {seconds}s",
              "<i>" + brief(report["measurement_scope"], 65) + "</i>"]
     rank = {"published": 4, "release-ready": 3, "migrated": 2, "deferred": 1, "rejected": 0}
