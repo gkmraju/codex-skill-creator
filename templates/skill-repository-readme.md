@@ -1,0 +1,65 @@
+<div align="center">
+
+# 🧩 {{SKILL_TITLE}}
+
+### {{ONE_SENTENCE_DEVELOPER_BENEFIT}}
+
+{{VERIFIED_RUNTIME_LICENSE_AND_REAL_CI_BADGES}}
+
+[Quick start](#quick-start) · [Example](#example) · [Verification](#verification) · [Upstream](#upstream--license)
+
+</div>
+
+---
+
+## What this skill helps you do
+
+{{CONCRETE_SUPPORTED_CAPABILITIES_AND_WHEN_TO_USE_THE_SKILL}}
+
+## Quick start
+
+**Requires:** {{TESTED_RUNTIME_AND_DEPENDENCIES}}
+
+```text
+{{TESTED_INSTALLATION_COMMANDS}}
+```
+
+Invoke it in Codex:
+
+```text
+${{SKILL_SLUG}} {{REALISTIC_INVOCATION_WITH_INPUT}}
+```
+
+## Example
+
+**Request:** {{REALISTIC_USER_REQUEST}}
+
+**Result:** {{ACTUALLY_OBSERVED_OUTPUT_OR_CLEARLY_LABELED_ILLUSTRATION}}
+
+{{OPTIONAL_LOCAL_SCREENSHOT_OR_SHORT_OUTPUT_EXCERPT}}
+
+## How it works
+
+{{SHORT_ACTUAL_WORKFLOW_OR_MERMAID_DIAGRAM}}
+
+## Verification
+
+```text
+{{ACTUAL_VERIFICATION_COMMANDS}}
+```
+
+{{OBSERVED_TEST_INSTALL_AND_CI_RESULTS_WITH_THEIR_SCOPE}}
+
+## Scope
+
+{{SUPPORTED_BOUNDARIES_AND_MATERIAL_LIMITATIONS}}
+
+## Upstream & license
+
+Adapted from [{{SOURCE_AUTHOR_AND_SKILL}}]({{IMMUTABLE_SOURCE_URL}}).
+
+Source revision: {{SOURCE_COMMIT}} · License: {{VERIFIED_LICENSE_AND_NOTICE_LINK}}
+
+{{KEY_CODEX_ADAPTATIONS_AND_TRUTHFUL_CONTRIBUTION_ATTRIBUTION}}
+
+{{LINKS_TO_EXISTING_PROVENANCE_MIGRATION_AND_EVALUATION_FILES}}

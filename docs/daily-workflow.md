@@ -22,6 +22,8 @@ Bind the codex_overlap selection decision to the user-curated CSV row/hash; reco
 
 Adapt instructions, helpers, dependencies and installation for real Codex use. Exercise realistic supported behavior, failure paths and a fresh install. Record actual outputs and reviewer scope; structural checks alone do not establish usability.
 
+Before the final artifact fingerprint, follow docs/skill-readme.md and templates/skill-repository-readme.md. Match the control README's polish with skill-specific benefits, tested installation/invocation, an example, verification and upstream/license attribution. Resolve placeholders and verify links/claims; include README quality in final review evidence.
+
 ## 3. Fork and publish
 
 After local release gates pass, create an actual GitHub fork of the CSV repository with the chosen codex-skill-<slug> name. Verify fork=true and parent.html_url equals the source repository. Use the fork API through an available connector or the existing authenticated GitHub REST client; never expose credentials.

@@ -25,3 +25,5 @@ The individual package uses the supported Codex compatibility manifest (.codex-p
 Official references checked 2026-10-13:
 - https://developers.openai.com/plugins/build/skills
 - https://developers.openai.com/plugins/build/plugins
+
+Public README quality is part of final review: follow docs/skill-readme.md, resolve template placeholders, verify commands/links and keep badges/results truthful before the final fingerprint.

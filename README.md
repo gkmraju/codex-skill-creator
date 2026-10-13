@@ -99,3 +99,5 @@ python -B scripts/verify.py
 Control-project tests check queue progression, validation, evidence and reporting. Each converted skill also needs its own behavioral/install checks and successful CI.
 
 Source authors retain attribution. Applicable licenses and immutable source revisions accompany every derivative. Historical work is preserved in the [archive](archive/README.md).
+
+Every published skill gets the same README polish: [README standard](docs/skill-readme.md) · [Reusable template](templates/skill-repository-readme.md).
