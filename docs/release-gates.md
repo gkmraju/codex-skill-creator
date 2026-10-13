@@ -3,7 +3,7 @@
 Selection gates apply before staging:
 
 1. License: actual applicable license and notices identified, content hashes recorded, modification and redistribution reviewed, decision allowed, and passing license evidence.
-2. Codex overlap: compare triggers, workflow, outputs, and dependencies against built-in and installed skills. A materially equivalent skill fails this project's selection rule. Retain comparison evidence; automated name matching cannot resolve equivalence.
+2. Codex overlap selection decision: for the current user-curated CSV, accept the user's explicit Claude-only/non-portable screening and waive fresh equivalence searches. Record curation authority, CSV hash/row, source binding and scope in evidence; do not claim independently verified absence. Sources outside this accepted queue still require comparative evidence.
 3. Prior work: compare registry source identities, capabilities, and gkmraju repositories. Reject duplicates or prepare an update to an existing candidate. Record search scope and time; an empty registry alone does not prove no prior work.
 
 Release gates additionally require:

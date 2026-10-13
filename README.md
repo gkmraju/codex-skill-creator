@@ -103,3 +103,7 @@ See [release gates](docs/release-gates.md), [architecture](docs/architecture.md)
 A daily 07:00 IST Codex app automation is active. See [daily workflow](docs/daily-workflow.md) and [Telegram setup/reporting](docs/telegram.md). [Today's completed run](reports/2026-10-13/completed-run.md) records the first published skill; the earlier journey remains historical. Reports distinguish completed migrations from assessed drafts and estimated impact from measured results.
 
 Current discovery audience: software developers only, per the latest user instruction. The first published measurement skill predates that scope change.
+
+## Curated queue
+
+Daily work now uses the user-supplied [154-source CSV](registry/claude_only_skills_with_stars.csv). Run python -B scripts/next_candidate.py to see only the next row. Fresh Codex-equivalence screening and broad discovery are waived for this accepted list. See [queue workflow](docs/daily-workflow.md); progress is separate in registry/queue-state.json.

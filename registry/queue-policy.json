@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "csv_file": "registry/claude_only_skills_with_stars.csv",
+  "csv_sha256": "43367f072490134e2a4f207ecbca35330e31794555204276e06dbe635fcb16f0",
+  "screening_authority": "User manually curated and explicitly waived fresh Codex equivalence screening on 2026-10-13",
+  "codex_overlap_basis": "accepted-user-curation; no independent compatibility/equivalence assertion",
+  "audience": "software developers only",
+  "order": "original CSV row order; approximate stars supplied by user, not refreshed",
+  "row_unit": "source repository; select one actual developer skill and record its path before conversion"
+}

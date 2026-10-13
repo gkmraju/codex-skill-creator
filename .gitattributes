@@ -3,3 +3,6 @@
 # Evidence fingerprints and source notices bind exact bytes.
 migrations/** -text
 evidence/** -text
+
+# Preserve the accepted user-curated queue hash.
+registry/*.csv -text

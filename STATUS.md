@@ -1,3 +1,11 @@
+# Queue update: 2026-10-13
+
+Fresh standalone 07:00 IST automation is active (daily-curated-developer-skill-migration); prior chat heartbeat paused. Configured model/reasoning retained. The job explicitly uses this workspace from a projectless task.
+
+Imported the user-curated 154-row CSV unchanged into registry/claude_only_skills_with_stars.csv. Approximate stars and supplied order retained; no independent refresh or Codex-equivalence research performed. The user explicitly waived fresh screening. Software developers remain the target.
+
+Use python -B scripts/next_candidate.py to obtain only the next row. It returns row2 (ponytail); no migration of that row has started. Progress is separate in registry/queue-state.json. For collections, select one actual developer skill and record its source path. Licensing, adaptation, behavioral/install testing and publication remain required.
+
 # Current checkpoint: 2026-10-13
 
 Future audience is software developers only, per the latest user instruction. Today's Gauge R&R run finished under the earlier all-audience scope; its real measurement audience is preserved in the historical report.
