@@ -23,9 +23,19 @@
       "fork_parent_url": "https://github.com/emilkowalski/skills"
     },
     "5": {
-      "status": "in-progress",
+      "status": "blocked",
       "source_repository": "https://github.com/agentic-awesome/skills",
-      "reason": "Source unavailable (GitHub HTTP 404); verify the CSV URL/access"
+      "reason": "Source unavailable: GitHub HTTP 404 on two checks; automatically bypassed per user policy"
+    },
+    "6": {
+      "status": "blocked",
+      "source_repository": "https://github.com/agent-skills/agent-skills",
+      "reason": "Source unavailable: GitHub HTTP 404 on two checks; automatically bypassed per user policy"
+    },
+    "7": {
+      "status": "in-progress",
+      "source_repository": "https://github.com/K-Dense-AI/claude-scientific-skills",
+      "reason": "No reviewed Python recipe; manually adapt one developer skill and add behavior tests"
     }
   }
 }

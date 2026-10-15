@@ -1,0 +1,22 @@
+{
+  "manual_intervention": {
+    "name": "K-Dense-AI/claude-scientific-skills",
+    "csv_row": 7,
+    "repository": "https://github.com/K-Dense-AI/claude-scientific-skills",
+    "reason": "No reviewed Python recipe; manually adapt one developer skill and add behavior tests",
+    "label": "Manual intervention"
+  },
+  "unavailable_rows": [
+    5,
+    6
+  ],
+  "run_id": "cloud-2026-10-15-38767652770",
+  "date": "2026-10-15",
+  "duration_seconds": 18.397482872009277,
+  "measurement_scope": "Python cloud run; no LLM usage",
+  "repositories_discovered": 0,
+  "skills_reviewed": 0,
+  "migrations_completed": 0,
+  "skills": [],
+  "next_step": "No reviewed Python recipe; manually adapt one developer skill and add behavior tests"
+}

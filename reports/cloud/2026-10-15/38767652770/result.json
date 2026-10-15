@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-15",
+  "started_at": 1792081023.2077756,
+  "base_commit": "669cbe2898f8db496958b7a81540298997387331",
+  "run_id": "38767652770",
+  "initial_selected": {
+    "csv_row": 5,
+    "name": "agentic-awesome-skills",
+    "approx_stars": "43700",
+    "repository": "https://github.com/agentic-awesome/skills",
+    "screening": "accepted user curation; no fresh equivalence search",
+    "audience": "software developers only",
+    "progress": {
+      "status": "in-progress",
+      "source_repository": "https://github.com/agentic-awesome/skills",
+      "reason": "Source unavailable (GitHub HTTP 404); verify the CSV URL/access"
+    }
+  },
+  "selected": {
+    "csv_row": 7,
+    "name": "K-Dense-AI/claude-scientific-skills",
+    "approx_stars": "24000",
+    "repository": "https://github.com/K-Dense-AI/claude-scientific-skills",
+    "screening": "accepted user curation; no fresh equivalence search",
+    "audience": "software developers only",
+    "progress": {}
+  },
+  "skipped_sources": [
+    {
+      "selected": {
+        "csv_row": 5,
+        "name": "agentic-awesome-skills",
+        "approx_stars": "43700",
+        "repository": "https://github.com/agentic-awesome/skills",
+        "screening": "accepted user curation; no fresh equivalence search",
+        "audience": "software developers only",
+        "progress": {
+          "status": "in-progress",
+          "source_repository": "https://github.com/agentic-awesome/skills",
+          "reason": "Source unavailable (GitHub HTTP 404); verify the CSV URL/access"
+        }
+      },
+      "checks": 2,
+      "reason": "Source unavailable: GitHub HTTP 404 on two checks; automatically bypassed per user policy"
+    },
+    {
+      "selected": {
+        "csv_row": 6,
+        "name": "agent-skills",
+        "approx_stars": "27800",
+        "repository": "https://github.com/agent-skills/agent-skills",
+        "screening": "accepted user curation; no fresh equivalence search",
+        "audience": "software developers only",
+        "progress": {}
+      },
+      "checks": 2,
+      "reason": "Source unavailable: GitHub HTTP 404 on two checks; automatically bypassed per user policy"
+    }
+  ],
+  "status": "intervention",
+  "checks": [],
+  "reason": "No reviewed Python recipe; manually adapt one developer skill and add behavior tests"
+}
