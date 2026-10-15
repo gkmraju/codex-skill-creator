@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-15",
+  "started_at": 1792079725.1881468,
+  "base_commit": "2aac063a4c51c0618aa3709827a73717bbe2426d",
+  "run_id": "38764534127",
+  "selected": {
+    "csv_row": 5,
+    "name": "agentic-awesome-skills",
+    "approx_stars": "43700",
+    "repository": "https://github.com/agentic-awesome/skills",
+    "screening": "accepted user curation; no fresh equivalence search",
+    "audience": "software developers only",
+    "progress": {}
+  },
+  "status": "intervention",
+  "checks": [],
+  "reason": "Source unavailable (GitHub HTTP 404); verify the CSV URL/access"
+}

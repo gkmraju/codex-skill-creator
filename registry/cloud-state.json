@@ -1,4 +1,10 @@
 {
   "schema_version": 1,
-  "days": {}
+  "days": {
+    "2026-10-15": {
+      "run_id": "38764534127",
+      "status": "intervention",
+      "report": "reports/cloud/2026-10-15/38764534127/run.json"
+    }
+  }
 }

@@ -21,6 +21,11 @@
       "ci_url": "https://github.com/gkmraju/codex-skill-animation-performance/actions/runs/38748679532",
       "artifact_sha256": "e296781d9a9436520ea2e5886b7ae51c1ae04b61b86e9c1d690371647b0c36b2",
       "fork_parent_url": "https://github.com/emilkowalski/skills"
+    },
+    "5": {
+      "status": "in-progress",
+      "source_repository": "https://github.com/agentic-awesome/skills",
+      "reason": "Source unavailable (GitHub HTTP 404); verify the CSV URL/access"
     }
   }
 }

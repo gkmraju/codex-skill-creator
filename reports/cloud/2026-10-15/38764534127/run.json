@@ -1,0 +1,17 @@
+{
+  "manual_intervention": {
+    "name": "agentic-awesome-skills",
+    "csv_row": 5,
+    "repository": "https://github.com/agentic-awesome/skills",
+    "reason": "Source unavailable (GitHub HTTP 404); verify the CSV URL/access"
+  },
+  "run_id": "cloud-2026-10-15-38764534127",
+  "date": "2026-10-15",
+  "duration_seconds": 12.428299903869629,
+  "measurement_scope": "Python cloud run; no LLM usage",
+  "repositories_discovered": 0,
+  "skills_reviewed": 0,
+  "migrations_completed": 0,
+  "skills": [],
+  "next_step": "Source unavailable (GitHub HTTP 404); verify the CSV URL/access"
+}
