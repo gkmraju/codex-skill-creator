@@ -171,13 +171,19 @@ def evaluate(root, client=None):
                 continue
             recipe = recipe_for(root, selected)
             if recipe is None:
-                raise t.Invalid("No reviewed Python recipe; manually adapt one developer skill and add behavior tests")
-            require_unused(root, candidate_for(root, recipe))
-            candidate, checks = evaluate_recipe(root, recipe, client)
-            result.update(status="ready", candidate_id=candidate["id"],
-                artifact_sha256=recipe["artifact_sha256"], checks=checks, reason="Recipe and checks passed")
+                from . import autoconvert
+                candidate, checks, digest, bundle_hash = autoconvert.convert(root, selected, client, metadata)
+                result.update(status="ready", candidate_id=candidate["id"], artifact_sha256=digest,
+                    checks=checks, auto_generated=True, bundle_sha256=bundle_hash, skill_name=candidate["slug"],
+                    developer_benefit=autoconvert.PROFILES[candidate["slug"]]["request"],
+                    reason="Source converted automatically; generated package acceptance passed")
+            else:
+                require_unused(root, candidate_for(root, recipe))
+                candidate, checks = evaluate_recipe(root, recipe, client)
+                result.update(status="ready", candidate_id=candidate["id"],
+                    artifact_sha256=recipe["artifact_sha256"], checks=checks, reason="Recipe and checks passed")
             break
-    except (ValueError, RuntimeError, OSError, subprocess.SubprocessError) as error:
+    except (ValueError, RuntimeError, OSError, KeyError, subprocess.SubprocessError) as error:
         result["reason"] = safe_reason(str(error))
     t.write_json(root / "tmp/cloud-result.json", result)
     print(json.dumps({"status": result["status"], "reason": result["reason"],
@@ -296,13 +302,13 @@ def report(root, result):
     item = None
     published = result["status"] == "published"
     if selected.get("csv_row") and result.get("candidate_id"):
-        item = {"name": f"CSV row {selected['csv_row']}: {selected['name']}",
+        item = {"name": (result["skill_name"] + f" (CSV row {selected['csv_row']})") if result.get("skill_name") else f"CSV row {selected['csv_row']}: {selected['name']}",
             "outcome": "published" if published else "deferred",
-            "usefulness": "Reviewed Codex conversion" if published else "Manual intervention required",
+            "usefulness": result.get("developer_benefit", "Codex conversion") if published else "Manual intervention required",
             "audience": "software developers", "impact": "No adoption/savings measured",
-            "impact_evidence": "Observed recipe checks and CI only", "changes": "Reviewed replacement recipe",
+            "impact_evidence": "Observed recipe checks and CI only", "changes": "Python source conversion" if result.get("auto_generated") else "Reviewed replacement recipe",
             "validation": result["reason"], "limitations": result["reason"],
-            "learning": "Deterministic rules need source-specific review",
+            "learning": "Source conversion and tested runtime adapters; no model calls",
             "links": [{"label": "Source repository", "url": selected["repository"]}]}
         if published:
             item["publication"] = result["publication"]
@@ -340,21 +346,29 @@ def finalize(root, result, client=None):
     selected = queue.next_row(root)
     if result["status"] == "ready":
         try:
-            recipe = recipe_for(root, selected)
-            candidate = candidate_for(root, recipe)
+            if result.get("auto_generated"):
+                from . import autoconvert
+                candidate = autoconvert.import_bundle(root, selected, result)
+                expected = autoconvert.CHECK_NAMES
+                actual = [(c["name"], c["scope"]) for c in result["checks"]]
+                if expected != actual or any(c["exit_code"] != 0 for c in result["checks"]):
+                    raise t.Invalid("Automatic conversion acceptance incomplete")
+            else:
+                recipe = recipe_for(root, selected)
+                candidate = candidate_for(root, recipe)
+                if result["candidate_id"] != candidate["id"] or result["artifact_sha256"] != recipe["artifact_sha256"]:
+                    raise t.Invalid("Evaluation artifact/candidate mismatch")
+                expected = [(c["name"], c["scope"]) for c in recipe["checks"]]
+                actual = [(c["name"], c["scope"]) for c in result["checks"]]
+                if expected != actual or any(c["exit_code"] != 0 for c in result["checks"]):
+                    raise t.Invalid("Incomplete evaluation results")
             require_unused(root, candidate)
-            if result["candidate_id"] != candidate["id"] or result["artifact_sha256"] != recipe["artifact_sha256"]:
-                raise t.Invalid("Evaluation artifact/candidate mismatch")
-            expected = [(c["name"], c["scope"]) for c in recipe["checks"]]
-            actual = [(c["name"], c["scope"]) for c in result["checks"]]
-            if expected != actual or any(c["exit_code"] != 0 for c in result["checks"]):
-                raise t.Invalid("Incomplete evaluation results")
             queue.mark(root, selected["csv_row"], "in-progress", skill_path=candidate["source"]["skill_path"])
             proof = publication(root, candidate, result, client or GitHub())
             queue.mark(root, selected["csv_row"], "completed", candidate_id=candidate["id"],
                 publication_path=(run_folder(root, result) / "publication.json").relative_to(root).as_posix())
             result.update(status="published", publication=proof,
-                reason="Reviewed recipe, fresh behavior checks and completed skill CI passed")
+                reason="Codex package, fresh behavior checks and completed skill CI passed")
         except (ValueError, RuntimeError, OSError, subprocess.SubprocessError) as error:
             result.update(status="intervention", reason=safe_reason(str(error)))
     if result["status"] == "intervention" and selected.get("csv_row"):

@@ -1,0 +1,90 @@
+<div align="center">
+
+# {{TITLE}} for Codex
+
+### {{DESCRIPTION}}
+
+[![Python](https://img.shields.io/badge/Python-3.11%2B-3776AB?style=flat-square)](#quick-start)
+[![License](https://img.shields.io/badge/license-MIT-0891b2?style=flat-square)](LICENSE)
+[![CI]({{REPOSITORY}}/actions/workflows/validate.yml/badge.svg)]({{REPOSITORY}}/actions/workflows/validate.yml)
+
+[Quick start](#quick-start) | [Example](#example) | [Verification](#verification) | [Upstream](#upstream--license)
+
+</div>
+
+---
+
+## What this skill helps you do
+
+{{DESCRIPTION}}
+
+This package is built automatically from one source skill. Its instructions and references
+are installed together for Codex; unrelated upstream skills are excluded.
+
+## Quick start
+
+Requires Python 3.11 or later. Clone the package, then run from its root:
+
+~~~text
+python -m pip install -r skills/{{SLUG}}/requirements.txt
+python skills/{{SLUG}}/scripts/install.py --project PATH_TO_EXISTING_PROJECT
+~~~
+
+Open that project in Codex and invoke:
+
+~~~text
+${{SLUG}} {{REQUEST}}
+~~~
+
+The installer copies the whole skill to the project's .agents/skills/{{SLUG}} directory
+and refuses to replace an existing installation.
+
+## Example
+
+{{EXAMPLE}}
+
+The executable bounded acceptance example is in
+[the package tests](skills/{{SLUG}}/tests/test_package.py).
+Upstream reference examples may require datasets or optional dependencies;
+they are retained as reference material, not claimed as executed package tests.
+
+## How it works
+
+~~~mermaid
+flowchart LR
+    A[Upstream skill] --> B[Codex metadata and resource conversion]
+    B --> C[Fresh install and runtime acceptance]
+    C --> D[Public upstream fork and CI]
+~~~
+
+## Verification
+
+~~~text
+python -B -m unittest discover -s skills/{{SLUG}}/tests -v
+~~~
+
+Tests cover a complete fresh install, preservation of an existing installation,
+refusal of a missing project and the {{SLUG}} runtime case described above.
+CI exercises Windows and Ubuntu with Python 3.11 and 3.13.
+
+## Scope
+
+This is a deterministic Python conversion using the {{SLUG}} runtime adapter.
+No LLM is used to convert or test this package. The tests establish package installation
+and the bounded runtime case; they do not establish Codex reasoning quality, every upstream
+example, performance gains or suitability for a particular production dataset.
+No cloud, GPU or external service integration is tested.
+Review retained instructions and adapt examples to your own inputs.
+
+## Upstream & license
+
+Adapted from [{{AUTHOR}}]({{SOURCE_URL}}).
+
+Source revision: {{REVISION}}
+
+The original [MIT notice](licenses/0-{{LICENSE_NAME}}) is preserved byte-for-byte.
+This package removes provider-specific metadata and automatic citation directives,
+adds Codex project installation, runtime tests and individual repository CI.
+
+[Provenance](provenance.json) | [Migration](docs/migration.md) |
+[Compatibility](docs/compatibility.md) | [Evaluation](docs/evaluation.md)

@@ -6,6 +6,8 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from skill_migration.github import GitHub
+from skill_migration import tool as t
+from skill_migration.cloud import date_ist, run_folder
 
 client = GitHub()
 base = client.git(ROOT, "rev-parse", "HEAD").strip()
@@ -13,7 +15,16 @@ client.git(ROOT, "fetch", "origin", "main")
 remote = client.git(ROOT, "rev-parse", "origin/main").strip()
 if base != remote:
     raise SystemExit("Remote advanced during this run. Preserve Actions output and rerun after inspection.")
-client.git(ROOT, "add", "--", "registry/queue-state.json", "registry/cloud-state.json", "reports/cloud", "STATUS.md")
+paths = ["registry/queue-state.json", "registry/cloud-state.json", "reports/cloud", "STATUS.md"]
+result_file = run_folder(ROOT, {"date": date_ist()}) / "result.json"
+if result_file.exists():
+    result = t.read_json(result_file)
+    if result.get("auto_generated"):
+        ledger = t.read_json(ROOT / "registry/candidates.json")
+        candidate = next((c for c in ledger["candidates"] if c["id"] == result.get("candidate_id")), None)
+        if candidate:
+            paths += ["registry/candidates.json", candidate["artifact"], "evidence/auto/" + candidate["id"]]
+client.git(ROOT, "add", "--", *paths)
 if client.git(ROOT, "diff", "--cached", "--name-only").strip():
     client.git(ROOT, "commit", "-m", "Record Python daily migration " + os.environ.get("GITHUB_RUN_ID", "local"))
     client.git(ROOT, "push", "origin", "HEAD:main")

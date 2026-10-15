@@ -9,9 +9,13 @@ GitHub can delay scheduled jobs; the cron is a requested start, not an exact-tim
 
 ## What is automatic
 
-Python reads the original CSV in order, checks the current repository, selects its reviewed recipe,
-verifies the immutable source and original license hashes, reconstructs the reviewed replacement package
-in a fresh directory, exercises its declared installation/behavior checks, and enforces existing release gates.
+Python reads the original CSV in order and checks the current source. Without an existing recipe,
+[autoconvert.py](../skill_migration/autoconvert.py) discovers a supported developer skill, pins the
+source revision, recognizes complete MIT notices and generates the actual Codex package from upstream
+Markdown. It normalizes provider metadata, preserves references and source attribution, and generates
+project installation, dependency locks, bounded runtime tests, a polished README and individual CI.
+It installs the trusted locked dependency in a fresh isolated environment and exercises the generated
+package checks before enforcing artifact-bound release gates. Existing recipes remain optional.
 A separate job can create the actual fork, push the exact reviewed bytes, wait for successful skill CI,
 mark the row completed, commit the queue/report and send the compact Telegram message.
 
@@ -20,45 +24,34 @@ reason preserved. The runner immediately advances in original CSV order, bypassi
 unavailable rows per run; it defers the next row until tomorrow if that cap is reached.
 Telegram summarizes bypassed rows. The original CSV is never changed.
 Authentication, rate-limit, network and server errors stop rather than bypassing sources.
-Unknown recipes, changed hashes, failed tests, fork conflicts and unsuccessful CI still produce
+Unsupported source adapters/licenses, changed hashes, failed tests, fork conflicts and unsuccessful CI still produce
 **manual intervention**, not a completed migration. That current row stays in-progress.
 Select Run workflow after repair and enable retry_today to retry an unfinished day.
 A completed publication is never repeated by this option. Concurrent runs are serialized.
 A rerun of an old workflow commit cannot overwrite newer remote checkpoints.
 
-## Conversion recipes
+## Automatic conversion coverage
 
-[registry/conversion-recipes.json](../registry/conversion-recipes.json) contains explicit, reviewed,
-source-specific replacement recipes. This is a deterministic replay of an approved conversion, not
-a semantic converter for arbitrary Claude instructions. A new source needs one manual adaptation
-and review before Python can publish it. Unsupported rows are reported rather than mechanically renamed.
+The initial runtime adapters support **polars**, **networkx** and **simpy**, independent of a specific
+repository URL. Source folders must contain bounded Markdown resources only; executable upstream
+helpers and provider-specific tool workflows are refused. Skill discovery is restricted to the
+selected CSV repository; no equivalence search or star refresh occurs.
 
-The initial animation-performance recipe reproduces the exact earlier conversion as a real regression
-check. Its CSV row remains completed and is never republished by the daily runner.
-There are no preapproved recipes for the remaining queue yet.
-The earlier animation source fingerprints describe its CRLF Windows checkout. Its recipe explicitly
-uses checkout_eol=crlf to reconstruct those same bytes on Linux before checking the recorded hashes;
-the immutable Git revision is checked independently. New recipes default to LF. Existing provenance,
-reviewed artifact bytes and published licenses remain unchanged.
+The generated tests exercise complete resource/notice installation and refusal paths plus a bounded
+library behavior case. They do not execute a model, measure reasoning quality, certify every upstream
+example or claim human semantic review. Automated evidence explicitly records this scope.
+Runtime locks and generated executable templates are trusted control-project code. New adapters can
+be added with meaningful runtime cases; no finished per-repository conversion is required.
 
-To onboard the blocked row:
+Evaluation sends a hashed ZIP of generated package/evidence data to a separate recording job.
+The recording job rejects traversal, linked/duplicate members, changed hashes, existing output
+collisions and source/row mismatches, then rechecks the release gates. It never executes downloaded
+package code while holding publication credentials. Checkpoints commit the generated artifact and
+its evidence alongside the queue state.
 
-1. Verify the supplied repository URL/access. Preserve the accepted CSV/hash; corrections need explicit curation.
-2. Select one developer skill and pin its commit, skill tree and applicable license hashes.
-3. Adapt the single-skill package under migrations/ using docs/registry.md and docs/release-gates.md.
-   Follow docs/skill-readme.md and the README template.
-4. Record actual functional, compatibility, security and final-review evidence. Set release-ready only after all gates pass.
-5. Add one recipe linking that candidate, source revision, complete artifact hash and explicit Python/Node checks.
-   Include a behavior check; syntax/metadata checks alone are insufficient. Checks are trusted code reviewed in this control repository.
-6. Commit/push the reviewed changes, then run the daily workflow with retry_today enabled.
-
-Check a recipe without publishing:
-
-    python -B -m skill_migration.cloud recipe-check --recipe animation-performance-v1
-
-The browser recipe also requires Node, playwright@1.62.1 and its Chromium installation.
-No agent invocation/semantic evaluation is claimed by these Python tests.
-Historical exact-artifact review remains in the ledger; each cloud run rechecks its source and declared behaviors.
+[conversion-recipes.json](../registry/conversion-recipes.json) is an optional legacy path for exact
+previously reviewed conversions. The earlier animation recipe remains a regression check;
+its completed row is never republished. Its recorded CRLF source checkout is reconstructed explicitly.
 
 ## Secrets and permissions
 

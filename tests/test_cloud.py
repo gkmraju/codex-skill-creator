@@ -18,6 +18,10 @@ class CloudTests(unittest.TestCase):
         self.root = fixture.root
         t.write_json(self.root / "registry/conversion-recipes.json", {"schema_version": 1, "recipes": []})
         t.write_json(self.root / "registry/cloud-state.json", {"schema_version": 1, "days": {}})
+        automatic = patch("skill_migration.autoconvert.convert",
+            side_effect=t.Invalid("No supported automatic runtime adapter"))
+        automatic.start()
+        self.addCleanup(automatic.stop)
 
     def result(self, **changes):
         result = {"schema_version": 1, "date": cloud.date_ist(), "started_at": 0,
@@ -27,13 +31,26 @@ class CloudTests(unittest.TestCase):
         result.update(changes)
         return result
 
+    def test_missing_recipe_uses_actual_source_converter(self):
+        class Public:
+            def api(self, path):
+                return {"html_url": "https://github.com/example/first"}
+        generated = ({"id": "csv-2-polars", "slug": "polars"}, [{"name": "runtime", "scope": "behavior", "exit_code": 0}],
+            "a" * 64, "b" * 64)
+        with patch("skill_migration.autoconvert.convert", return_value=generated) as convert:
+            result = cloud.evaluate(self.root, Public())
+        convert.assert_called_once()
+        self.assertEqual(result["status"], "ready")
+        self.assertTrue(result["auto_generated"])
+        self.assertEqual(result["bundle_sha256"], "b" * 64)
+
     def test_unknown_recipe_reports_and_keeps_current_row(self):
         class Public:
             def api(self, path):
                 return {"html_url": "https://github.com/example/first"}
         result = cloud.evaluate(self.root, Public())
         self.assertEqual(result["status"], "intervention")
-        self.assertIn("No reviewed", result["reason"])
+        self.assertIn("No supported", result["reason"])
         with patch.object(cloud, "publication") as publish:
             cloud.finalize(self.root, result)
         publish.assert_not_called()
@@ -61,7 +78,7 @@ class CloudTests(unittest.TestCase):
                 return None if path.endswith("/first") else {"html_url": "https://github.com/example/second"}
         result = cloud.evaluate(self.root, Mixed())
         self.assertEqual(result["selected"]["csv_row"], 3)
-        self.assertIn("No reviewed", result["reason"])
+        self.assertIn("No supported", result["reason"])
         cloud.finalize(self.root, result)
         self.assertEqual(cloud.queue.next_row(self.root)["csv_row"], 3)
         state = t.read_json(self.root / "registry/queue-state.json")

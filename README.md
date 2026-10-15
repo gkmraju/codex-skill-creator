@@ -24,9 +24,9 @@ The queue is already screened by the user. Its original order and approximate st
 ```mermaid
 flowchart LR
     A["Next unused CSV row"] --> B["Select a developer skill"]
-    B --> R{"Reviewed recipe?"}
-    R -->|Yes| C["Reconstruct Codex conversion"]
-    R -->|No| M["Telegram · manual adaptation"]
+    B --> R{"Supported converter?"}
+    R -->|Yes| C["Build Codex package from source"]
+    R -->|No| M["Telegram: unsupported source"]
     C --> D["Test and verify installation"]
     D --> E["Create upstream fork"]
     E --> F["Publish and pass CI"]
@@ -38,7 +38,7 @@ flowchart LR
 | Stage | Result |
 | :--- | :--- |
 | **Pick** | One pending or resumable row; no repeated discovery |
-| **Convert** | Reviewed Python recipe reconstructs Codex instructions and resources |
+| **Convert** | Python converts upstream metadata/resources into a Codex package |
 | **Verify** | License/provenance, actual behavior and release evidence |
 | **Fork & publish** | gkmraju/codex-skill-<slug>, source lineage retained, successful CI |
 | **Record** | Durable queue progress and a compact Telegram report |
@@ -86,11 +86,15 @@ One Python workflow requests a daily run at **07:00 IST** on GitHub-hosted Ubunt
 Your PC and Codex desktop app can be off. No OpenAI key or model calls are needed.
 GitHub scheduling can be delayed; exact start times are not guaranteed.
 
-Python handles the CSV, pinned source checks, reviewed replacement recipes, behavior tests,
-actual forks, successful CI, durable checkpoints and Telegram reporting. A new unsupported
-skill needs a manual adaptation/review and recipe before automatic publication.
-The initial recipe reproduces the previously published animation skill; it does not approve
-unreviewed remaining rows. A daily release is a target, not a guarantee.
+GitHub itself fetches the CSV repository and builds a Codex package from source. The Python
+converter supports Markdown-based **Polars, NetworkX and SimPy** developer skills with recognized
+MIT notices. It normalizes metadata, carries supporting references and notices, generates an
+installer, README and CI, exercises fresh installation/runtime cases, and creates the public fork.
+No preconverted package or per-repository recipe is needed for supported skills.
+
+Executable upstream helpers, unsupported runtime/tool workflows or unrecognized licenses request
+intervention. Existing reviewed recipes remain an optional fallback. A daily release is a target,
+not a guarantee for arbitrary source repositories.
 
 [Setup, secrets and manual intervention](docs/cloud-runner.md) ·
 [Daily GitHub workflow](.github/workflows/daily-migration.yml)
