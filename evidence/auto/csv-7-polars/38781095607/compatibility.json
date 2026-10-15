@@ -1,0 +1,26 @@
+{
+  "kind": "compatibility",
+  "outcome": "pass",
+  "reviewer": "Python automatic converter; scoped machine checks, no LLM",
+  "recorded_at": "2026-10-15T17:53:59.757088+00:00",
+  "summary": "Generated Codex metadata, complete local resources and installer behavior checked; scope described in package docs.",
+  "source_sha256": "3d1157fd01f58a972a74389a13f5b57c1ce69fca179ad785b956c5c32c47bc30",
+  "source": {
+    "origin": "https://github.com/K-Dense-AI/claude-scientific-skills",
+    "skill_path": "skills/polars",
+    "revision": "a1043ef544e3a100c28e70a736b6cf32554d0677",
+    "attribution": "Copyright (c) 2025 K-Dense Inc.",
+    "sha256": "3d1157fd01f58a972a74389a13f5b57c1ce69fca179ad785b956c5c32c47bc30",
+    "license_files": [
+      {
+        "path": "LICENSE.md",
+        "sha256": "09b02a3c9df3053c55531d503357a9c7cde275970e6c3ceaa1ddf5f0e90b40c1"
+      }
+    ]
+  },
+  "references": [
+    "https://github.com/K-Dense-AI/claude-scientific-skills/tree/a1043ef544e3a100c28e70a736b6cf32554d0677/skills/polars",
+    "registry/queue-policy.json"
+  ],
+  "artifact_sha256": "237f3a95beec0fc6a075a17127bcff7b779432ba87099667aa81ebcdd31b8d27"
+}

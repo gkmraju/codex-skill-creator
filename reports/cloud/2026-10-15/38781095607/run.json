@@ -1,0 +1,38 @@
+{
+  "manual_intervention": {
+    "name": "K-Dense-AI/claude-scientific-skills",
+    "csv_row": 7,
+    "repository": "https://github.com/K-Dense-AI/claude-scientific-skills",
+    "reason": "GitHub HTTP 307: POST /repos/K-Dense-AI/claude-scientific-skills/forks",
+    "label": "Manual intervention"
+  },
+  "unavailable_rows": [],
+  "run_id": "cloud-2026-10-15-38781095607",
+  "date": "2026-10-15",
+  "duration_seconds": 21.481127500534058,
+  "measurement_scope": "Python cloud run; no LLM usage",
+  "repositories_discovered": 0,
+  "skills_reviewed": 1,
+  "migrations_completed": 0,
+  "skills": [
+    {
+      "name": "polars (CSV row 7)",
+      "outcome": "deferred",
+      "usefulness": "Manual intervention required",
+      "audience": "software developers",
+      "impact": "No adoption/savings measured",
+      "impact_evidence": "Observed recipe checks and CI only",
+      "changes": "Python source conversion",
+      "validation": "GitHub HTTP 307: POST /repos/K-Dense-AI/claude-scientific-skills/forks",
+      "limitations": "GitHub HTTP 307: POST /repos/K-Dense-AI/claude-scientific-skills/forks",
+      "learning": "Source conversion and tested runtime adapters; no model calls",
+      "links": [
+        {
+          "label": "Source repository",
+          "url": "https://github.com/K-Dense-AI/claude-scientific-skills"
+        }
+      ]
+    }
+  ],
+  "next_step": "GitHub HTTP 307: POST /repos/K-Dense-AI/claude-scientific-skills/forks"
+}

@@ -35,7 +35,8 @@
     "7": {
       "status": "in-progress",
       "source_repository": "https://github.com/K-Dense-AI/claude-scientific-skills",
-      "reason": "No reviewed Python recipe; manually adapt one developer skill and add behavior tests"
+      "reason": "GitHub HTTP 307: POST /repos/K-Dense-AI/claude-scientific-skills/forks",
+      "selected_skill_path": "skills/polars"
     }
   }
 }

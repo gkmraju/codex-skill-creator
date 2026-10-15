@@ -4,7 +4,7 @@
 
 Outcome: intervention
 
-No reviewed Python recipe; manually adapt one developer skill and add behavior tests
+GitHub HTTP 307: POST /repos/K-Dense-AI/claude-scientific-skills/forks
 
 No LLM used. Details: result.json.
 

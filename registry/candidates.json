@@ -101,6 +101,107 @@
           "artifact_sha256": "e296781d9a9436520ea2e5886b7ae51c1ae04b61b86e9c1d690371647b0c36b2"
         }
       ]
+    },
+    {
+      "id": "csv-7-polars",
+      "slug": "polars",
+      "status": "release-ready",
+      "source": {
+        "collection": "auto-csv",
+        "location": "sources/auto-csv-7",
+        "origin": "https://github.com/K-Dense-AI/claude-scientific-skills",
+        "skill_path": "skills/polars",
+        "revision": "a1043ef544e3a100c28e70a736b6cf32554d0677",
+        "attribution": "Copyright (c) 2025 K-Dense Inc.",
+        "sha256": "3d1157fd01f58a972a74389a13f5b57c1ce69fca179ad785b956c5c32c47bc30",
+        "license_files": [
+          {
+            "path": "LICENSE.md",
+            "sha256": "09b02a3c9df3053c55531d503357a9c7cde275970e6c3ceaa1ddf5f0e90b40c1"
+          }
+        ],
+        "license_decision": "allowed"
+      },
+      "assessment": {
+        "format": {
+          "status": "compatible",
+          "notes": "Name/description-only Codex frontmatter; remaining scaffolds and references structurally checked."
+        },
+        "resources": {
+          "status": "compatible",
+          "notes": "Source is bounded Markdown-only content; complete resources copied and references validated."
+        },
+        "platform": {
+          "status": "compatible",
+          "notes": "Python portable installer; Windows/Ubuntu CI required before queue completion."
+        },
+        "tools": {
+          "status": "compatible",
+          "notes": "No provider-specific tool workflow detected by supported markers; available Codex file/shell tools used."
+        },
+        "runtime": {
+          "status": "compatible",
+          "notes": "Locked library installed and bounded behavior exercised; no native agent/model execution claimed."
+        },
+        "installation": {
+          "status": "compatible",
+          "notes": "Complete fresh .agents/skills installation and refusal paths passed."
+        },
+        "license": {
+          "status": "compatible",
+          "notes": "Recognized MIT notices preserved byte-exactly; copyright attribution retained."
+        }
+      },
+      "checks": {
+        "codex_overlap": "pass",
+        "prior_work": "pass"
+      },
+      "blockers": [],
+      "artifact": "migrations/polars",
+      "evidence": [
+        {
+          "kind": "license",
+          "path": "evidence/auto/csv-7-polars/38781095607/license.json",
+          "sha256": "7986d10eda6ccb443a025231a7e3fcf2912017b5720e89397892ec32c54c587d",
+          "artifact_sha256": null
+        },
+        {
+          "kind": "codex_overlap",
+          "path": "evidence/auto/csv-7-polars/38781095607/codex_overlap.json",
+          "sha256": "e7e542d030ac20c313302f4ebe2c23cebc6041e85e7b4b04a52ab28030e77100",
+          "artifact_sha256": null
+        },
+        {
+          "kind": "prior_work",
+          "path": "evidence/auto/csv-7-polars/38781095607/prior_work.json",
+          "sha256": "0e23c0a3e89023a1956a26afa030bc541aff3a08f6af5ca59d4a9c801ed59fd1",
+          "artifact_sha256": null
+        },
+        {
+          "kind": "compatibility",
+          "path": "evidence/auto/csv-7-polars/38781095607/compatibility.json",
+          "sha256": "bbda6f8c194a7034d866c673998ed1999ec39ec40b606fa35803b8cae15857e7",
+          "artifact_sha256": "237f3a95beec0fc6a075a17127bcff7b779432ba87099667aa81ebcdd31b8d27"
+        },
+        {
+          "kind": "functional",
+          "path": "evidence/auto/csv-7-polars/38781095607/functional.json",
+          "sha256": "c98f18c4f0d7699f9d4b0d20cc30c2e6fa49699d9ad2d82b11e34556c0730bee",
+          "artifact_sha256": "237f3a95beec0fc6a075a17127bcff7b779432ba87099667aa81ebcdd31b8d27"
+        },
+        {
+          "kind": "security",
+          "path": "evidence/auto/csv-7-polars/38781095607/security.json",
+          "sha256": "dba4832e755b80a3b3a3fcca5cc3e05f3e4e408b7a1459df0fe2ca4378a9ce04",
+          "artifact_sha256": "237f3a95beec0fc6a075a17127bcff7b779432ba87099667aa81ebcdd31b8d27"
+        },
+        {
+          "kind": "review",
+          "path": "evidence/auto/csv-7-polars/38781095607/review.json",
+          "sha256": "6e201d917641beba59747b9ad2dfbdd770a7448aa07120ef24a31671d7cfe5d1",
+          "artifact_sha256": "237f3a95beec0fc6a075a17127bcff7b779432ba87099667aa81ebcdd31b8d27"
+        }
+      ]
     }
   ]
 }

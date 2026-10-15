@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-15",
+  "started_at": 1792086832.4591765,
+  "base_commit": "f5670f67da58823a17c81ee2205aa7216bbde11e",
+  "run_id": "38781095607",
+  "initial_selected": {
+    "csv_row": 7,
+    "name": "K-Dense-AI/claude-scientific-skills",
+    "approx_stars": "24000",
+    "repository": "https://github.com/K-Dense-AI/claude-scientific-skills",
+    "screening": "accepted user curation; no fresh equivalence search",
+    "audience": "software developers only",
+    "progress": {
+      "status": "in-progress",
+      "source_repository": "https://github.com/K-Dense-AI/claude-scientific-skills",
+      "reason": "No reviewed Python recipe; manually adapt one developer skill and add behavior tests"
+    }
+  },
+  "selected": {
+    "csv_row": 7,
+    "name": "K-Dense-AI/claude-scientific-skills",
+    "approx_stars": "24000",
+    "repository": "https://github.com/K-Dense-AI/claude-scientific-skills",
+    "screening": "accepted user curation; no fresh equivalence search",
+    "audience": "software developers only",
+    "progress": {
+      "status": "in-progress",
+      "source_repository": "https://github.com/K-Dense-AI/claude-scientific-skills",
+      "reason": "No reviewed Python recipe; manually adapt one developer skill and add behavior tests"
+    }
+  },
+  "skipped_sources": [],
+  "status": "intervention",
+  "checks": [
+    {
+      "name": "fresh package and library behavior",
+      "scope": "behavior",
+      "exit_code": 0,
+      "output_sha256": "af63323f7ce672e6e4d341a587db8520a5ad1e3b97659dcaeb17b274d40fe567"
+    }
+  ],
+  "candidate_id": "csv-7-polars",
+  "artifact_sha256": "237f3a95beec0fc6a075a17127bcff7b779432ba87099667aa81ebcdd31b8d27",
+  "auto_generated": true,
+  "bundle_sha256": "35ad68bf6e2948dd3e483422974a4a4d42a04671a5e8a5e4ccdaaaad73b48352",
+  "skill_name": "polars",
+  "developer_benefit": "Build a typed lazy CSV aggregation while preserving string IDs and validating joins.",
+  "reason": "GitHub HTTP 307: POST /repos/K-Dense-AI/claude-scientific-skills/forks"
+}
