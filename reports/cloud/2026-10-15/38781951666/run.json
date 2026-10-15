@@ -1,0 +1,45 @@
+{
+  "manual_intervention": null,
+  "unavailable_rows": [],
+  "run_id": "cloud-2026-10-15-38781951666",
+  "date": "2026-10-15",
+  "duration_seconds": 104.21395993232727,
+  "measurement_scope": "Python cloud run; no LLM usage",
+  "repositories_discovered": 0,
+  "skills_reviewed": 1,
+  "migrations_completed": 1,
+  "skills": [
+    {
+      "name": "polars (CSV row 7)",
+      "outcome": "published",
+      "usefulness": "Build a typed lazy CSV aggregation while preserving string IDs and validating joins.",
+      "audience": "software developers",
+      "impact": "No adoption/savings measured",
+      "impact_evidence": "Observed recipe checks and CI only",
+      "changes": "Python source conversion",
+      "validation": "Codex package, fresh behavior checks and completed skill CI passed",
+      "limitations": "Codex package, fresh behavior checks and completed skill CI passed",
+      "learning": "Source conversion and tested runtime adapters; no model calls",
+      "links": [
+        {
+          "label": "Source repository",
+          "url": "https://github.com/K-Dense-AI/claude-scientific-skills"
+        }
+      ],
+      "publication": {
+        "repository_url": "https://github.com/gkmraju/codex-skill-polars",
+        "commit_sha": "af451f383f099f5a5436921754b205b169841946",
+        "artifact_sha256": "237f3a95beec0fc6a075a17127bcff7b779432ba87099667aa81ebcdd31b8d27",
+        "fork": true,
+        "fork_parent_url": "https://github.com/K-Dense-AI/scientific-agent-skills",
+        "source_repository_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
+        "resolved_source_repository_url": "https://github.com/K-Dense-AI/scientific-agent-skills",
+        "source_repository_id": 1079456184,
+        "fork_parent_repository_id": 1079456184,
+        "ci_conclusion": "success",
+        "ci_url": "https://github.com/gkmraju/codex-skill-polars/actions/runs/38782115546"
+      }
+    }
+  ],
+  "next_step": "Next CSV row tomorrow"
+}

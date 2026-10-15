@@ -1,0 +1,13 @@
+{
+  "repository_url": "https://github.com/gkmraju/codex-skill-polars",
+  "commit_sha": "af451f383f099f5a5436921754b205b169841946",
+  "artifact_sha256": "237f3a95beec0fc6a075a17127bcff7b779432ba87099667aa81ebcdd31b8d27",
+  "fork": true,
+  "fork_parent_url": "https://github.com/K-Dense-AI/scientific-agent-skills",
+  "source_repository_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
+  "resolved_source_repository_url": "https://github.com/K-Dense-AI/scientific-agent-skills",
+  "source_repository_id": 1079456184,
+  "fork_parent_repository_id": 1079456184,
+  "ci_conclusion": "success",
+  "ci_url": "https://github.com/gkmraju/codex-skill-polars/actions/runs/38782115546"
+}

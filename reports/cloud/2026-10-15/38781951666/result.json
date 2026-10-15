@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-15",
+  "started_at": 1792087214.0358617,
+  "base_commit": "7f963198d71f89a860405c299ace056f01e50ac9",
+  "run_id": "38781951666",
+  "initial_selected": {
+    "csv_row": 7,
+    "name": "K-Dense-AI/claude-scientific-skills",
+    "approx_stars": "24000",
+    "repository": "https://github.com/K-Dense-AI/claude-scientific-skills",
+    "screening": "accepted user curation; no fresh equivalence search",
+    "audience": "software developers only",
+    "progress": {
+      "status": "in-progress",
+      "source_repository": "https://github.com/K-Dense-AI/claude-scientific-skills",
+      "reason": "GitHub HTTP 307: POST /repos/K-Dense-AI/claude-scientific-skills/forks",
+      "selected_skill_path": "skills/polars"
+    }
+  },
+  "selected": {
+    "csv_row": 7,
+    "name": "K-Dense-AI/claude-scientific-skills",
+    "approx_stars": "24000",
+    "repository": "https://github.com/K-Dense-AI/claude-scientific-skills",
+    "screening": "accepted user curation; no fresh equivalence search",
+    "audience": "software developers only",
+    "progress": {
+      "status": "in-progress",
+      "source_repository": "https://github.com/K-Dense-AI/claude-scientific-skills",
+      "reason": "GitHub HTTP 307: POST /repos/K-Dense-AI/claude-scientific-skills/forks",
+      "selected_skill_path": "skills/polars"
+    }
+  },
+  "skipped_sources": [],
+  "status": "published",
+  "checks": [
+    {
+      "name": "fresh package and library behavior",
+      "scope": "behavior",
+      "exit_code": 0,
+      "output_sha256": "feff19346cbb016a5423195a498891567af5ce31451741cd2ae2a9d7f0c09219"
+    }
+  ],
+  "candidate_id": "csv-7-polars",
+  "artifact_sha256": "237f3a95beec0fc6a075a17127bcff7b779432ba87099667aa81ebcdd31b8d27",
+  "auto_generated": true,
+  "bundle_sha256": "f1523aa99ac0db953ef3d56c74682160bd2e50a7799adfaa8ed2d8d439f87cb8",
+  "skill_name": "polars",
+  "developer_benefit": "Build a typed lazy CSV aggregation while preserving string IDs and validating joins.",
+  "reason": "Codex package, fresh behavior checks and completed skill CI passed",
+  "publication": {
+    "repository_url": "https://github.com/gkmraju/codex-skill-polars",
+    "commit_sha": "af451f383f099f5a5436921754b205b169841946",
+    "artifact_sha256": "237f3a95beec0fc6a075a17127bcff7b779432ba87099667aa81ebcdd31b8d27",
+    "fork": true,
+    "fork_parent_url": "https://github.com/K-Dense-AI/scientific-agent-skills",
+    "source_repository_url": "https://github.com/K-Dense-AI/claude-scientific-skills",
+    "resolved_source_repository_url": "https://github.com/K-Dense-AI/scientific-agent-skills",
+    "source_repository_id": 1079456184,
+    "fork_parent_repository_id": 1079456184,
+    "ci_conclusion": "success",
+    "ci_url": "https://github.com/gkmraju/codex-skill-polars/actions/runs/38782115546"
+  }
+}

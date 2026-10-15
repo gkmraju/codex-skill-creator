@@ -33,10 +33,16 @@
       "reason": "Source unavailable: GitHub HTTP 404 on two checks; automatically bypassed per user policy"
     },
     "7": {
-      "status": "in-progress",
+      "status": "completed",
       "source_repository": "https://github.com/K-Dense-AI/claude-scientific-skills",
       "reason": "GitHub HTTP 307: POST /repos/K-Dense-AI/claude-scientific-skills/forks",
-      "selected_skill_path": "skills/polars"
+      "selected_skill_path": "skills/polars",
+      "candidate_id": "csv-7-polars",
+      "repository_url": "https://github.com/gkmraju/codex-skill-polars",
+      "commit_sha": "af451f383f099f5a5436921754b205b169841946",
+      "ci_url": "https://github.com/gkmraju/codex-skill-polars/actions/runs/38782115546",
+      "artifact_sha256": "237f3a95beec0fc6a075a17127bcff7b779432ba87099667aa81ebcdd31b8d27",
+      "fork_parent_url": "https://github.com/K-Dense-AI/scientific-agent-skills"
     }
   }
 }
