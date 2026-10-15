@@ -47,6 +47,12 @@ class AutomaticConverterTests(unittest.TestCase):
         self.assertEqual(t.artifact_errors(self.root, candidate), [])
         self.assertNotIn("{{", (artifact / "README.md").read_text())
 
+    def test_license_lookup_normalizes_checkout_aliases(self):
+        alias = self.checkout / "extra"
+        alias.mkdir()
+        notices, _ = a.license_record(alias / "..", self.skill)
+        self.assertEqual(notices[0]["path"], "LICENSE.md")
+
     def test_executable_source_helpers_require_review(self):
         (self.skill / "helper.py").write_text("print('upstream code')")
         with self.assertRaisesRegex(ValueError, "Markdown"):

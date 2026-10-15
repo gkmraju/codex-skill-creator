@@ -261,13 +261,16 @@ class CloudTests(unittest.TestCase):
         fixture = MigrationTests()
         fixture.setUp()
         self.addCleanup(fixture.doCleanups)
+        fixture.c["source"]["origin"] = "https://github.com/example/source"
         fixture.ready()
         class Existing:
             operations = []
             def api(self, path, *args):
                 if path == "/user":
                     return {"login": "gkmraju"}
-                return {"fork": True, "parent": {"html_url": fixture.c["source"]["origin"]},
+                if path == "/repos/example/source":
+                    return {"id": 123, "html_url": fixture.c["source"]["origin"]}
+                return {"fork": True, "parent": {"id": 123, "html_url": fixture.c["source"]["origin"]},
                     "private": False, "html_url": "https://github.com/gkmraju/codex-skill-demo",
                     "clone_url": "https://github.com/gkmraju/codex-skill-demo.git", "default_branch": "main"}
             def git(self, cwd, *args):

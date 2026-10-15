@@ -82,3 +82,5 @@ If delivery fails, Actions fails visibly and preserves the public report. GitHub
 prevent delivery; GitHub's own failure notifications remain the fallback.
 The desktop automation is paused after cloud activation, preserving its old configuration.
 Local sources, credentials, installed skills and archived history remain untouched.
+
+Renamed upstream URLs are followed only within HTTPS api.github.com. Fork lineage is verified by the immutable source repository ID and observed parent ID; publication evidence preserves both the CSV URL and resolved parent URL. Source redirects do not change the accepted CSV.

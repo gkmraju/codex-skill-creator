@@ -61,7 +61,14 @@ def publication_record(root, selected, candidate_id, publication_path):
     repo = evidence.get("repository_url", "")
     if not re.fullmatch(r"https://github[.]com/gkmraju/codex-skill-[a-z0-9-]+", repo):
         raise ValueError("Expected the individual public skill repository")
-    if evidence.get("fork") is not True or evidence.get("fork_parent_url", "").rstrip("/") != selected["repository"]:
+    parent = evidence.get("fork_parent_url", "").rstrip("/")
+    renamed_source = (type(evidence.get("source_repository_id")) is int
+        and evidence["source_repository_id"] > 0
+        and evidence["source_repository_id"] == evidence.get("fork_parent_repository_id")
+        and evidence.get("source_repository_url") == selected["repository"]
+        and evidence.get("resolved_source_repository_url") == parent
+        and re.fullmatch(r"https://github[.]com/[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+", parent))
+    if evidence.get("fork") is not True or (parent != selected["repository"] and not renamed_source):
         raise ValueError("Publication evidence must identify an actual fork of this source")
     if not re.fullmatch(r"[a-f0-9]{40}", evidence.get("commit_sha", "")):
         raise ValueError("Publication needs the actual pushed commit")

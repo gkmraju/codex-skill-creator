@@ -80,7 +80,15 @@ class QueueTests(unittest.TestCase):
             with self.subTest(field=field),self.assertRaises(ValueError):
                 queue.mark(fixture.root,2,"completed",candidate_id=fixture.c["id"],publication_path="evidence/publication/demo.json")
             self.assertEqual(queue.next_row(fixture.root)["csv_row"],2)
-        tool.write_json(path,proof)
+        renamed = dict(proof, fork_parent_url="https://github.com/example/renamed",
+            resolved_source_repository_url="https://github.com/example/renamed",
+            source_repository_url="https://github.com/example/first",
+            source_repository_id=123, fork_parent_repository_id=456)
+        tool.write_json(path,renamed)
+        with self.assertRaises(ValueError):
+            queue.mark(fixture.root,2,"completed",candidate_id=fixture.c["id"],publication_path="evidence/publication/demo.json")
+        renamed["fork_parent_repository_id"] = 123
+        tool.write_json(path,renamed)
         queue.mark(fixture.root,2,"completed",candidate_id=fixture.c["id"],publication_path="evidence/publication/demo.json")
         self.assertEqual(queue.next_row(fixture.root)["csv_row"],3)
 

@@ -66,6 +66,7 @@ def normalize_skill(text, name, description, package):
 
 
 def license_record(checkout, skill):
+    checkout, skill = Path(checkout).resolve(), Path(skill).resolve()
     notices = []
     for folder in [skill, *skill.parents]:
         if not folder.is_relative_to(checkout):

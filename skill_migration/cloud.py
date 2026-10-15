@@ -198,6 +198,9 @@ def publication(root, candidate, result, client):
     name = "codex-skill-" + candidate["slug"]
     path = "/repos/gkmraju/" + name
     source = candidate["source"]["origin"]
+    source_meta = client.api("/repos/" + source.removeprefix("https://github.com/"))
+    if not source_meta or not isinstance(source_meta.get("id"), int):
+        raise t.Invalid("Source repository identity unavailable")
     meta = client.api(path)
     created = not meta
     if created:
@@ -208,8 +211,9 @@ def publication(root, candidate, result, client):
             if meta:
                 break
             time.sleep(2)
-    if not meta or meta.get("fork") is not True or meta.get("parent", {}).get("html_url") != source:
-        raise t.Invalid("Target must be an actual fork of the selected source")
+    if (not meta or meta.get("fork") is not True or
+            meta.get("parent", {}).get("id") != source_meta["id"]):
+        raise t.Invalid("Target must be an actual fork of the selected source repository identity")
     if meta.get("private") or meta.get("html_url") != "https://github.com/gkmraju/" + name:
         raise t.Invalid("Unexpected/private publication target")
     checkout = root / "dist/cloud-publication" / name
@@ -242,7 +246,10 @@ def publication(root, candidate, result, client):
         client.git(checkout, "push", "origin", "HEAD:" + meta["default_branch"])
     commit = client.git(checkout, "rev-parse", "HEAD").decode().strip()
     proof = {"repository_url": meta["html_url"], "commit_sha": commit,
-        "artifact_sha256": t.tree_sha(artifact), "fork": True, "fork_parent_url": source,
+        "artifact_sha256": t.tree_sha(artifact), "fork": True,
+        "fork_parent_url": meta["parent"]["html_url"], "source_repository_url": source,
+        "resolved_source_repository_url": source_meta["html_url"],
+        "source_repository_id": source_meta["id"], "fork_parent_repository_id": meta["parent"]["id"],
         "ci_conclusion": "pending"}
     proof_file = run_folder(root, result) / "publication.json"
     t.write_json(proof_file, proof)
