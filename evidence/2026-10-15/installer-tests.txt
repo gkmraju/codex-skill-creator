@@ -1,0 +1,8 @@
+test_existing_install_refused_without_overwriting (test_install.InstallTests.test_existing_install_refused_without_overwriting) ... ok
+test_installs_whole_skill_and_preserves_source_bytes (test_install.InstallTests.test_installs_whole_skill_and_preserves_source_bytes) ... ok
+test_missing_project_refused (test_install.InstallTests.test_missing_project_refused) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 1.799s
+
+OK

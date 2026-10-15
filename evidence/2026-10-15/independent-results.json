@@ -1,0 +1,76 @@
+{
+  "browser": "155.0.4283.45",
+  "platform": "win32",
+  "geometry": {
+    "375": {
+      "initial": {
+        "x": 33,
+        "y": 252.109375,
+        "width": 160,
+        "height": 98
+      },
+      "moved": {
+        "x": 273,
+        "y": 252.109375,
+        "width": 160,
+        "height": 98
+      }
+    },
+    "960": {
+      "initial": {
+        "x": 33,
+        "y": 198.109375,
+        "width": 160,
+        "height": 98
+      },
+      "moved": {
+        "x": 273,
+        "y": 198.109375,
+        "width": 160,
+        "height": 98
+      }
+    }
+  },
+  "interaction": {
+    "tabOrder": [
+      "move",
+      "action"
+    ],
+    "enterAndSpace": true,
+    "focusRetainedDuringMovement": true,
+    "pointerInitialMovedAndMidpoint": true,
+    "actions": 6,
+    "midpoint": {
+      "x": 197.3143768310547,
+      "y": 198.109375,
+      "width": 160.00001525878906,
+      "height": 98
+    }
+  },
+  "reducedMotion": {
+    "start": 33,
+    "end": 273,
+    "duration": "0s",
+    "animations": 0,
+    "pressed": "true",
+    "actionWorking": true
+  },
+  "traceBefore": {
+    "toggles": 8,
+    "counts": {
+      "Layout": 110,
+      "UpdateLayoutTree": 118,
+      "Paint": 220,
+      "CompositeLayers": 0
+    }
+  },
+  "traceAfter": {
+    "toggles": 8,
+    "counts": {
+      "Layout": 0,
+      "UpdateLayoutTree": 43,
+      "Paint": 0,
+      "CompositeLayers": 0
+    }
+  }
+}

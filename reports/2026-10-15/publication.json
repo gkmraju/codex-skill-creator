@@ -1,0 +1,33 @@
+{
+  "repository_url": "https://github.com/gkmraju/codex-skill-animation-performance",
+  "repository_id": 1420831400,
+  "fork": true,
+  "fork_parent_url": "https://github.com/emilkowalski/skills",
+  "default_branch": "main",
+  "artifact_sha256": "e296781d9a9436520ea2e5886b7ae51c1ae04b61b86e9c1d690371647b0c36b2",
+  "ci_conclusion": "success",
+  "commit_sha": "3d0f24923a762dff7a5d684fbc758fcce540f1f3",
+  "ci_url": "https://github.com/gkmraju/codex-skill-animation-performance/actions/runs/38748679532",
+  "ci_jobs": [
+    {
+      "name": "browser",
+      "conclusion": "success"
+    },
+    {
+      "name": "install (windows-latest, 3.10)",
+      "conclusion": "success"
+    },
+    {
+      "name": "install (ubuntu-latest, 3.10)",
+      "conclusion": "success"
+    },
+    {
+      "name": "install (ubuntu-latest, 3.13)",
+      "conclusion": "success"
+    },
+    {
+      "name": "install (windows-latest, 3.13)",
+      "conclusion": "success"
+    }
+  ]
+}

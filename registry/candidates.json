@@ -1,1 +1,106 @@
-{"schema_version": 1, "candidates": []}
+{
+  "schema_version": 1,
+  "candidates": [
+    {
+      "id": "emil-animation-performance",
+      "slug": "animation-performance",
+      "status": "release-ready",
+      "source": {
+        "collection": "emil",
+        "location": "sources/emilkowalski-skills",
+        "origin": "https://github.com/emilkowalski/skills",
+        "skill_path": "skills/animation-performance",
+        "revision": "2d228630ba1446365f614a108cb8252f1feda202",
+        "attribution": "Emil Kowalski; Copyright (c) 2026 Emil Kowalski; MIT",
+        "sha256": "f2f8a55d603d2f386454168944fd01fcea86852fadb3789a2f257b7627a27123",
+        "license_files": [
+          {
+            "path": "LICENSE",
+            "sha256": "d24da413cccbc3d844929a1cc08e5ba79385139c0c47c9d5bd0dd2df24ffe15c"
+          }
+        ],
+        "license_decision": "allowed"
+      },
+      "assessment": {
+        "format": {
+          "status": "compatible",
+          "notes": "Codex metadata/entrypoint quick_validate passed; fixed greeting and invented persona removed."
+        },
+        "resources": {
+          "status": "compatible",
+          "notes": "All local links resolve; original notice preserved; diagnosis reference, before/after fixtures and actual tests reviewed."
+        },
+        "platform": {
+          "status": "compatible",
+          "notes": "Windows/Python3.13/Edge155 locally exercised; portable installer uses stdlib with guarded platform APIs; external Windows/Ubuntu matrix required before queue completion."
+        },
+        "tools": {
+          "status": "compatible",
+          "notes": "No Claude-only or sibling-skill tools; browser optional at runtime, Playwright pinned for developer tests; no credential/network dependency in skill/installer."
+        },
+        "runtime": {
+          "status": "compatible",
+          "notes": "Native Codex0.162.0 enabled repo-scope discovery; independent requested-fix and audit-only behavior exercised."
+        },
+        "installation": {
+          "status": "compatible",
+          "notes": "Final full skill copied to fresh project by installer; every installed file byte matched; overwrite/missing-project refusal exercised."
+        },
+        "license": {
+          "status": "compatible",
+          "notes": "Original MIT author/notice and immutable source revision retained; no copied external media or third-party browser-doc code."
+        }
+      },
+      "checks": {
+        "codex_overlap": "pass",
+        "prior_work": "pass"
+      },
+      "blockers": [],
+      "artifact": "migrations/animation-performance",
+      "evidence": [
+        {
+          "kind": "license",
+          "path": "evidence/2026-10-14/animation-license.json",
+          "sha256": "641011049dd31bc28f3cf852477c0f072bb9293664b5a8e149353d60a7eff93e",
+          "artifact_sha256": null
+        },
+        {
+          "kind": "codex_overlap",
+          "path": "evidence/2026-10-14/animation-codex_overlap.json",
+          "sha256": "50e54c37429723a89718adc7e9ff228c924e5fa36cc842961c3cecd1b937d79f",
+          "artifact_sha256": null
+        },
+        {
+          "kind": "prior_work",
+          "path": "evidence/2026-10-14/animation-prior_work.json",
+          "sha256": "6448408fe129dfb576b1f368d5518f519f5218c4b70ca4148cd3200961d8a1d1",
+          "artifact_sha256": null
+        },
+        {
+          "kind": "compatibility",
+          "path": "evidence/2026-10-15/animation-compatibility.json",
+          "sha256": "a034e3d8da61305d72a8aa1a446c7dc9ba9f786e9431c383780efe422815ad8b",
+          "artifact_sha256": "e296781d9a9436520ea2e5886b7ae51c1ae04b61b86e9c1d690371647b0c36b2"
+        },
+        {
+          "kind": "functional",
+          "path": "evidence/2026-10-15/animation-functional.json",
+          "sha256": "f5c3ad7003d4cd6c2ddbaab349acf8472eca878eaca5bef71fd9ef595afac1ba",
+          "artifact_sha256": "e296781d9a9436520ea2e5886b7ae51c1ae04b61b86e9c1d690371647b0c36b2"
+        },
+        {
+          "kind": "security",
+          "path": "evidence/2026-10-15/animation-security.json",
+          "sha256": "54799d86477301f474d9987bfe2f0ff3594ae965fe9bc299c34370fc1e594431",
+          "artifact_sha256": "e296781d9a9436520ea2e5886b7ae51c1ae04b61b86e9c1d690371647b0c36b2"
+        },
+        {
+          "kind": "review",
+          "path": "evidence/2026-10-15/animation-review.json",
+          "sha256": "a01ffbd981de62f2d2418ef33f8cd49597fb87bf171aa2d1bef1cb00371a3e27",
+          "artifact_sha256": "e296781d9a9436520ea2e5886b7ae51c1ae04b61b86e9c1d690371647b0c36b2"
+        }
+      ]
+    }
+  ]
+}

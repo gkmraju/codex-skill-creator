@@ -1,0 +1,13 @@
+# Source-only animation audit
+
+The component animates `left` from 0 to 240px through `transition: all 220ms ease-out` (`examples/before.html:7-8`). Changing left changes layout positioning, so this is a plausible source of layout work throughout movement. Source inspection identifies that risk; it cannot establish that the component visibly stutters, misses frames, or uses any particular amount of main-thread time.
+
+The broad transition declaration also permits future changes to other animatable properties to animate unexpectedly. The supplied click path changes only the moved class and aria-pressed (`:17-20`); this source contains no requestAnimationFrame loop, React state driver, or per-frame JavaScript update. The counter handler is independent (`:21`). There are no expensive filters or shadows in the supplied styles.
+
+There is no prefers-reduced-motion query or preference handler in the supplied code. Consequently, this authored transition does not provide a reduced-motion-specific path. The markup keeps both buttons present and uses native button activation; the move handler updates aria-pressed. These are source observations, not verified keyboard, focus, accessibility, or hit-testing outcomes.
+
+A potential correction would keep left at zero, translate the card by 240px, restrict the transition to transform with the existing duration/easing, and add a reduced-motion path that retains the endpoint and functionality. This is a recommendation only. A transform introduces stacking-context/containing-block considerations; verify the component's actual integration before applying it. This fixture has no positioned card descendants, hidden states, or overlapping siblings in its supplied markup.
+
+To confirm the diagnosis, reproduce the same movement before and after any eventual change and capture a comparable browser performance trace. Inspect Layout/Paint events and long tasks; use compositing/layer evidence before making an acceleration claim. Check initial and final rectangles, return movement, pointer activation, Enter/Space activation, Tab order, focus during motion, aria-pressed, and reduced-motion immediate final state. If mobile performance matters, record the target device separately.
+
+No browser was used for this audit-only case. No trace or frame-rate measurement was supplied or collected for this case. Actual layout-event frequency, frame timing, GPU acceleration, visual smoothness, and device performance remain unmeasured. Earlier evaluation measurements are not evidence for this source-only scenario and are not used in these findings. No source change was made.

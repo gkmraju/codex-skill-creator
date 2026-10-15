@@ -1,0 +1,15 @@
+{
+  "row": 4,
+  "name": "emilkowalski-skills",
+  "repository": "https://github.com/emilkowalski/skills",
+  "revision": "2d228630ba1446365f614a108cb8252f1feda202",
+  "default_branch": "main",
+  "license": {
+    "key": "mit",
+    "name": "MIT License",
+    "spdx_id": "MIT",
+    "url": "https://api.github.com/licenses/mit",
+    "node_id": "MDc6TGljZW5zZTEz"
+  },
+  "source_fork": false
+}

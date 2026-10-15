@@ -1,0 +1,82 @@
+{
+  "kind": "functional",
+  "outcome": "pass",
+  "reviewer": "Codex primary agent; independent animation_eval_today evaluation as referenced",
+  "recorded_at": "2026-10-15T14:07:00.278614+00:00",
+  "summary": "Three installer tests, three reproducible browser scenarios and independent requested-fix/audit-only cases passed. Geometry/interactions/reduced motion preserved in scoped fixture checks.",
+  "source": {
+    "origin": "https://github.com/emilkowalski/skills",
+    "skill_path": "skills/animation-performance",
+    "revision": "2d228630ba1446365f614a108cb8252f1feda202",
+    "attribution": "Emil Kowalski; Copyright (c) 2026 Emil Kowalski; MIT",
+    "sha256": "f2f8a55d603d2f386454168944fd01fcea86852fadb3789a2f257b7627a27123",
+    "license_files": [
+      {
+        "path": "LICENSE",
+        "sha256": "d24da413cccbc3d844929a1cc08e5ba79385139c0c47c9d5bd0dd2df24ffe15c"
+      }
+    ]
+  },
+  "source_sha256": "f2f8a55d603d2f386454168944fd01fcea86852fadb3789a2f257b7627a27123",
+  "artifact_sha256": "e296781d9a9436520ea2e5886b7ae51c1ae04b61b86e9c1d690371647b0c36b2",
+  "references": [
+    "evidence/2026-10-15/installer-tests.txt",
+    "evidence/2026-10-15/browser-tests.json",
+    "evidence/2026-10-15/independent-evaluation.md"
+  ],
+  "environment": "Windows; Python3.13; native Codex0.162.0; headless Edge155.0.4283.45; Playwright1.62.1",
+  "cases": [
+    {
+      "prompt": "Install skill in a fresh project and refuse overwrites",
+      "expected": "Whole skill bytes copied, native enabled repo discovery, invalid installs refused",
+      "observed": "3 tests passed and final native Codex discovery returned enabled repo scope",
+      "outcome": "pass",
+      "outputs": [
+        {
+          "path": "evidence/2026-10-15/installer-tests.txt",
+          "sha256": "8523997844fa670e42b7d624309ef28fff8cd49fa586349ff3093f95622e5c59"
+        },
+        {
+          "path": "evidence/2026-10-15/native-install.json",
+          "sha256": "c09e27f87569d79776335661a8afe1fff6227bc7f7be68296ab30536f7bf7f27"
+        }
+      ]
+    },
+    {
+      "prompt": "Fix interactive card motion and preserve geometry, pointer/keyboard behavior and reduced motion",
+      "expected": "Actual compatible patch and exercised browser behavior; no unsupported performance claims",
+      "observed": "Independent actual after.html tested at960/375px; controlled8-toggle trace saw110 Layout events before and0 after; public3-scenario harness passed",
+      "outcome": "pass",
+      "outputs": [
+        {
+          "path": "evidence/2026-10-15/browser-tests.json",
+          "sha256": "6722b7c3608a6810af9020a634e6c14191cc7ec2dff629e0c2df3ee1290edf68"
+        },
+        {
+          "path": "evidence/2026-10-15/independent-evaluation.md",
+          "sha256": "c42997efd425e957457ebd018336df88f23911edb78dad90dda84debf9b7ef1e"
+        },
+        {
+          "path": "evidence/2026-10-15/independent-results.json",
+          "sha256": "3adcabb9aabfd8dba2ad60b825c4c988481174ce34663bcb2cd74a194ec5a9f0"
+        }
+      ]
+    },
+    {
+      "prompt": "Audit only with no browser trace and no source edits",
+      "expected": "Source unchanged and measurements marked pending",
+      "observed": "Independent audit-only passed with equal input hashes; no browser used",
+      "outcome": "pass",
+      "outputs": [
+        {
+          "path": "evidence/2026-10-15/independent-audit-only.md",
+          "sha256": "97f156218900e9b25065ccc00ebf51864259cebec4f410421a63cd7ec4f7105a"
+        },
+        {
+          "path": "evidence/2026-10-15/independent-evaluation.md",
+          "sha256": "c42997efd425e957457ebd018336df88f23911edb78dad90dda84debf9b7ef1e"
+        }
+      ]
+    }
+  ]
+}

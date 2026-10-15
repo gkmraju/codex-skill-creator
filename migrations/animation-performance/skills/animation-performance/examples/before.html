@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en"><meta charset="utf-8"><meta name="viewport" content="width=device-width">
+<title>Animation diagnosis fixture</title>
+<style>
+body{font:18px/1.5 system-ui;margin:32px;color:#15253f;background:#f4f7fc}
+.stage{position:relative;height:160px;max-width:540px;border:1px solid #bac9df;background:white;margin-top:20px}
+.card{position:absolute;top:20px;left:0;width:160px;padding:12px;box-sizing:border-box;background:#d9e7ff;border-radius:12px;transition:all 220ms ease-out}
+.card.moved{left:240px}
+button{font:inherit;padding:8px 12px;cursor:pointer}
+</style>
+<h1>Interactive animation fixture</h1>
+<button id="move" aria-pressed="false">Move card</button>
+<div class="stage"><div id="card" class="card"><span>Card action</span><br><button id="action">Count action</button></div></div>
+<p>Actions: <output id="count">0</output></p>
+<script>
+let count=0;
+document.querySelector('#move').addEventListener('click',event=>{
+ const moved=document.querySelector('#card').classList.toggle('moved');
+ event.currentTarget.setAttribute('aria-pressed',String(moved));
+});
+document.querySelector('#action').addEventListener('click',()=>{document.querySelector('#count').textContent=String(++count)});
+</script></html>

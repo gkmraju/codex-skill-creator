@@ -1,0 +1,29 @@
+name: Validate skill
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  install:
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ['3.10', '3.13']
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Installer behavior
+        run: python -B -m unittest discover -s skills/animation-performance/tests -v
+  browser:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --no-save playwright@1.62.1
+      - run: npx playwright install --with-deps chromium
+      - name: Interactive browser scenarios
+        run: node skills/animation-performance/tests/browser.cjs

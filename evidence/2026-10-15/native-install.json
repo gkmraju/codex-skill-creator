@@ -1,0 +1,10 @@
+{
+  "version": "codex-cli 0.162.0",
+  "installation": "fresh existing project .agents/skills/animation-performance; all resource bytes matched",
+  "observed": {
+    "name": "animation-performance",
+    "scope": "repo",
+    "enabled": true
+  },
+  "skill_tree_sha256": "cb71c7886ee10b14bf1a2029e311ba7d043ac3c1efe3b03185f6ead68bb91f93"
+}

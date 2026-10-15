@@ -1,0 +1,13 @@
+{
+  "origin": "https://github.com/emilkowalski/skills",
+  "skill_path": "skills/animation-performance",
+  "revision": "2d228630ba1446365f614a108cb8252f1feda202",
+  "attribution": "Emil Kowalski; Copyright (c) 2026 Emil Kowalski; MIT",
+  "sha256": "f2f8a55d603d2f386454168944fd01fcea86852fadb3789a2f257b7627a27123",
+  "license_files": [
+    {
+      "path": "LICENSE",
+      "sha256": "d24da413cccbc3d844929a1cc08e5ba79385139c0c47c9d5bd0dd2df24ffe15c"
+    }
+  ]
+}

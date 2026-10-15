@@ -1,1 +1,26 @@
-{"schema_version": 1, "rows": {}}
+{
+  "schema_version": 1,
+  "rows": {
+    "2": {
+      "status": "blocked",
+      "source_repository": "https://github.com/ponytail-ai/ponytail",
+      "reason": "Authenticated GitHub repository lookup returned HTTP404 on 2026-10-14; source inaccessible, not a compatibility rejection."
+    },
+    "3": {
+      "status": "blocked",
+      "source_repository": "https://github.com/graphify-ai/graphify",
+      "reason": "Authenticated GitHub repository lookup returned HTTP404 on 2026-10-14; source inaccessible, not a compatibility rejection."
+    },
+    "4": {
+      "selected_skill_path": "skills/animation-performance",
+      "status": "completed",
+      "source_repository": "https://github.com/emilkowalski/skills",
+      "candidate_id": "emil-animation-performance",
+      "repository_url": "https://github.com/gkmraju/codex-skill-animation-performance",
+      "commit_sha": "3d0f24923a762dff7a5d684fbc758fcce540f1f3",
+      "ci_url": "https://github.com/gkmraju/codex-skill-animation-performance/actions/runs/38748679532",
+      "artifact_sha256": "e296781d9a9436520ea2e5886b7ae51c1ae04b61b86e9c1d690371647b0c36b2",
+      "fork_parent_url": "https://github.com/emilkowalski/skills"
+    }
+  }
+}

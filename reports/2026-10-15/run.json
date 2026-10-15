@@ -1,0 +1,49 @@
+{
+  "run_id": "2026-10-15-animation-performance",
+  "date": "2026-10-15",
+  "duration_seconds": 566.517688,
+  "measurement_scope": "Finalization only; earlier conversion excluded",
+  "next_step": "Continue from next unused CSV row on the next run.",
+  "repositories_discovered": 0,
+  "skills_reviewed": 1,
+  "migrations_completed": 1,
+  "skills": [
+    {
+      "name": "Animation Performance (CSV row 4)",
+      "outcome": "published",
+      "usefulness": "Diagnoses web-animation cost while preserving interactive behavior.",
+      "audience": "frontend developers.",
+      "impact": "A repeatable way to investigate motion cost and protect UI behavior.",
+      "impact_evidence": "Potential workflow benefit; no adoption or business savings measured.",
+      "changes": "Self-contained Codex instructions, qualified rendering guidance, safe installer, real before/after examples and reproducible checks.",
+      "validation": "3 installer tests + 3 browser scenarios; native Codex; all 5 CI jobs passed.",
+      "limitations": "Desktop Chromium-family fixture testing; no FPS, GPU or real-device guarantee.",
+      "learning": "Separate layout cost from visual movement and preserve focus, hit-testing and reduced-motion behavior.",
+      "links": [
+        {
+          "label": "Get the skill",
+          "url": "https://github.com/gkmraju/codex-skill-animation-performance"
+        },
+        {
+          "label": "Completed CI",
+          "url": "https://github.com/gkmraju/codex-skill-animation-performance/actions/runs/38748679532"
+        },
+        {
+          "label": "Upstream source",
+          "url": "https://github.com/emilkowalski/skills"
+        }
+      ],
+      "publication": {
+        "repository_url": "https://github.com/gkmraju/codex-skill-animation-performance",
+        "commit_sha": "3d0f24923a762dff7a5d684fbc758fcce540f1f3",
+        "ci_conclusion": "success",
+        "ci_url": "https://github.com/gkmraju/codex-skill-animation-performance/actions/runs/38748679532"
+      }
+    }
+  ],
+  "csv_row": 4,
+  "completed_at": "2026-10-15T14:11:10.566719+00:00",
+  "fork_parent_url": "https://github.com/emilkowalski/skills",
+  "artifact_sha256": "e296781d9a9436520ea2e5886b7ae51c1ae04b61b86e9c1d690371647b0c36b2",
+  "duration_note": "Timer covers the final verification/publication segment only. Earlier adaptation/evaluation and the overnight interruption are excluded."
+}

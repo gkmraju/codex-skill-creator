@@ -1,0 +1,55 @@
+{
+  "browserVersion": "155.0.4283.45",
+  "environment": "headless Chromium-family browser; desktop fixture only",
+  "cases": [
+    {
+      "fixture": "before",
+      "reducedMotion": false,
+      "finalDisplacement": 240,
+      "geometryPreserved": true,
+      "pointerAndKeyboardPassed": true,
+      "focusPreserved": true,
+      "styles": {
+        "transitionProperty": "all",
+        "transitionDuration": "0.22s",
+        "transform": "none"
+      },
+      "observedLayoutCount": 17,
+      "observedLayoutDurationSeconds": 0.001137,
+      "pageErrors": []
+    },
+    {
+      "fixture": "after",
+      "reducedMotion": false,
+      "finalDisplacement": 240,
+      "geometryPreserved": true,
+      "pointerAndKeyboardPassed": true,
+      "focusPreserved": true,
+      "styles": {
+        "transitionProperty": "transform",
+        "transitionDuration": "0.22s",
+        "transform": "matrix(1, 0, 0, 1, 240, 0)"
+      },
+      "observedLayoutCount": 0,
+      "observedLayoutDurationSeconds": 0,
+      "pageErrors": []
+    },
+    {
+      "fixture": "after",
+      "reducedMotion": true,
+      "finalDisplacement": 240,
+      "geometryPreserved": true,
+      "pointerAndKeyboardPassed": true,
+      "focusPreserved": true,
+      "styles": {
+        "transitionProperty": "none",
+        "transitionDuration": "0s",
+        "transform": "matrix(1, 0, 0, 1, 240, 0)"
+      },
+      "observedLayoutCount": 0,
+      "observedLayoutDurationSeconds": 0,
+      "pageErrors": []
+    }
+  ],
+  "limits": "No FPS, GPU acceleration, real-phone or application-wide performance claim."
+}
