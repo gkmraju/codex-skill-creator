@@ -15,8 +15,13 @@ in a fresh directory, exercises its declared installation/behavior checks, and e
 A separate job can create the actual fork, push the exact reviewed bytes, wait for successful skill CI,
 mark the row completed, commit the queue/report and send the compact Telegram message.
 
-Unknown recipes, inaccessible sources, changed hashes, failed tests, fork conflicts and unsuccessful CI
-produce **manual intervention**, not a completed migration. The current row stays in-progress.
+A repository returning HTTP 404 on two checks is automatically recorded blocked, with its URL and
+reason preserved. The runner immediately advances in original CSV order, bypassing up to ten
+unavailable rows per run; it defers the next row until tomorrow if that cap is reached.
+Telegram summarizes bypassed rows. The original CSV is never changed.
+Authentication, rate-limit, network and server errors stop rather than bypassing sources.
+Unknown recipes, changed hashes, failed tests, fork conflicts and unsuccessful CI still produce
+**manual intervention**, not a completed migration. That current row stays in-progress.
 Select Run workflow after repair and enable retry_today to retry an unfinished day.
 A completed publication is never repeated by this option. Concurrent runs are serialized.
 A rerun of an old workflow commit cannot overwrite newer remote checkpoints.

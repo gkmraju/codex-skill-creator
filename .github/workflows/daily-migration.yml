@@ -49,10 +49,8 @@ jobs:
         run: |
           python -B - <<'PY'
           import os
-          from skill_migration.cloud import ROOT, queue, recipe_for
-          selected = queue.next_row(ROOT)
-          recipe = recipe_for(ROOT, selected) if 'repository' in selected else None
-          browser = bool(recipe and any(c['argv'][0] == 'node' for c in recipe['checks']))
+          from skill_migration.cloud import ROOT, needs_browser
+          browser = needs_browser(ROOT)
           with open(os.environ['GITHUB_OUTPUT'], 'a') as output:
               output.write('browser=' + str(browser).lower() + '\n')
           PY

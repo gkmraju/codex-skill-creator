@@ -97,11 +97,13 @@ def render(report):
     manual = report.get("manual_intervention")
     if manual and not ordered:
         row = manual.get("csv_row")
-        lines += ["", "\U0001f6a7 <b>Manual intervention</b>",
+        lines += ["", "\U0001f6a7 <b>" + brief(manual.get("label", "Manual intervention"), 50) + "</b>",
                   (f"CSV row {row}: " if row else "") + brief(manual["name"], 80),
                   brief(manual["reason"], 220)]
         if manual.get("repository"):
             lines.append('<a href="' + html.escape(manual["repository"], quote=True) + '">Source repository</a>')
+    if report.get("unavailable_rows"):
+        lines += ["Bypassed unavailable CSV rows: " + brief(", ".join(map(str, report["unavailable_rows"])), 80)]
     if not published:
         lines += ["\u27a1 " + brief(report["next_step"], 100)]
     message = "\n".join(lines)

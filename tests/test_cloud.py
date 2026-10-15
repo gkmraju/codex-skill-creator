@@ -41,14 +41,82 @@ class CloudTests(unittest.TestCase):
         self.assertEqual(selected["csv_row"], 2)
         self.assertEqual(selected["progress"]["status"], "in-progress")
 
-    def test_missing_source_is_intervention_not_completed(self):
+    def test_missing_sources_are_blocked_and_queue_exhausts(self):
         class Missing:
             def api(self, path):
                 return None
         result = cloud.evaluate(self.root, Missing())
-        self.assertIn("404", result["reason"])
-        cloud.finalize(self.root, result)
+        self.assertEqual(result["status"], "exhausted")
+        self.assertEqual(len(result["skipped_sources"]), 2)
+        # Evaluation proposes advancement; the recording job persists it.
         self.assertEqual(cloud.queue.next_row(self.root)["csv_row"], 2)
+        cloud.finalize(self.root, result)
+        self.assertEqual(cloud.queue.next_row(self.root)["status"], "queue-exhausted")
+        state = t.read_json(self.root / "registry/queue-state.json")
+        self.assertTrue(all(row["status"] == "blocked" for row in state["rows"].values()))
+
+    def test_missing_row_continues_to_reachable_row_in_same_run(self):
+        class Mixed:
+            def api(self, path):
+                return None if path.endswith("/first") else {"html_url": "https://github.com/example/second"}
+        result = cloud.evaluate(self.root, Mixed())
+        self.assertEqual(result["selected"]["csv_row"], 3)
+        self.assertIn("No reviewed", result["reason"])
+        cloud.finalize(self.root, result)
+        self.assertEqual(cloud.queue.next_row(self.root)["csv_row"], 3)
+        state = t.read_json(self.root / "registry/queue-state.json")
+        self.assertEqual(state["rows"]["2"]["status"], "blocked")
+        self.assertEqual(state["rows"]["3"]["status"], "in-progress")
+        report = cloud.report(self.root, result)
+        self.assertEqual(report["unavailable_rows"], [2])
+        self.assertIn("Bypassed unavailable CSV rows: 2", cloud.telegram.render(report))
+
+    def test_transient_404_is_not_skipped(self):
+        class Transient:
+            calls = 0
+            def api(self, path):
+                self.calls += 1
+                return None if self.calls == 1 else {"html_url": "https://github.com/example/first"}
+        client = Transient()
+        result = cloud.evaluate(self.root, client)
+        self.assertEqual(client.calls, 2)
+        self.assertEqual(result["skipped_sources"], [])
+        self.assertEqual(result["selected"]["csv_row"], 2)
+
+    def test_rate_limit_is_not_a_source_skip(self):
+        class Limited:
+            def api(self, path):
+                raise RuntimeError("GitHub HTTP 403: rate limit")
+        result = cloud.evaluate(self.root, Limited())
+        cloud.finalize(self.root, result)
+        self.assertEqual(result["skipped_sources"], [])
+        self.assertEqual(cloud.queue.next_row(self.root)["csv_row"], 2)
+
+    def test_skip_order_is_validated_before_state_mutation(self):
+        result = self.result(initial_selected=cloud.queue.next_row(self.root), skipped_sources=[{
+            "selected": {"csv_row": 3}, "checks": 2, "reason": "invalid"}])
+        original = (self.root / "registry/queue-state.json").read_bytes()
+        with self.assertRaisesRegex(ValueError, "order/evidence"):
+            cloud.finalize(self.root, result)
+        self.assertEqual(original, (self.root / "registry/queue-state.json").read_bytes())
+
+    def test_skip_batch_limit_defers_next_row_without_consuming_it(self):
+        class Missing:
+            def api(self, path):
+                return None
+        with patch.object(cloud, "MAX_UNAVAILABLE_ROWS", 1):
+            result = cloud.evaluate(self.root, Missing())
+            self.assertEqual(result["status"], "deferred")
+            cloud.finalize(self.root, result)
+        selected = cloud.queue.next_row(self.root)
+        self.assertEqual(selected["csv_row"], 3)
+        self.assertEqual(selected["progress"], {})
+        self.assertIn("Continuing tomorrow", cloud.telegram.render(cloud.report(self.root, result)))
+
+    def test_browser_setup_covers_candidate_after_unavailable_row(self):
+        t.write_json(self.root / "registry/conversion-recipes.json", {"recipes": [{
+            "repository": "https://github.com/example/second", "checks": [{"argv": ["node", "browser.cjs"]}]}]})
+        self.assertTrue(cloud.needs_browser(self.root))
 
     def test_stale_queue_result_cannot_publish(self):
         result = self.result()

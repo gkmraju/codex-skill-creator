@@ -124,19 +124,51 @@ def evaluate_recipe(root, recipe, client, run_command=subprocess.run):
     return candidate, output
 
 
+MAX_UNAVAILABLE_ROWS = 10
+
+
+def needs_browser(root):
+    """Prepare tools for any reachable candidate after the bounded source bypasses."""
+    excluded = []
+    for _ in range(MAX_UNAVAILABLE_ROWS + 1):
+        selected = queue.next_row(root, excluded_rows=excluded)
+        if "repository" not in selected:
+            return False
+        recipe = recipe_for(root, selected)
+        if recipe and any(c["argv"][0] == "node" for c in recipe["checks"]):
+            return True
+        excluded.append(selected["csv_row"])
+    return False
+
+
 def evaluate(root, client=None):
     selected = queue.next_row(root)
     result = {"schema_version": 1, "date": date_ist(), "started_at": time.time(),
-        "base_commit": os.environ.get("GITHUB_SHA", "local"), "run_id": os.environ.get("GITHUB_RUN_ID", "local"), "selected": selected,
-        "status": "intervention", "checks": []}
+        "base_commit": os.environ.get("GITHUB_SHA", "local"),
+        "run_id": os.environ.get("GITHUB_RUN_ID", "local"), "initial_selected": selected,
+        "selected": selected, "skipped_sources": [], "status": "intervention", "checks": []}
     client = client or GitHub()
     try:
-        if selected.get("status") == "queue-exhausted":
-            result.update(status="exhausted", reason="CSV exhausted; supply another curated batch")
-        else:
+        while True:
+            if selected.get("status") == "queue-exhausted":
+                result.update(status="exhausted", reason="CSV exhausted; supply another curated batch")
+                break
+            if len(result["skipped_sources"]) >= MAX_UNAVAILABLE_ROWS:
+                result.update(status="deferred", reason=f"Skipped {MAX_UNAVAILABLE_ROWS} unavailable sources; continue from the next row tomorrow")
+                break
             source = selected["repository"].removeprefix("https://github.com/")
-            if not client.api("/repos/" + source):
-                raise t.Invalid("Source unavailable (GitHub HTTP 404); verify the CSV URL/access")
+            # Only a repeated 404 is a source-specific skip. Authentication, rate-limit,
+            # network and server errors stop the run without consuming the row.
+            metadata = client.api("/repos/" + source)
+            if metadata is None:
+                metadata = client.api("/repos/" + source)
+            if metadata is None:
+                result["skipped_sources"].append({"selected": selected, "checks": 2,
+                    "reason": "Source unavailable: GitHub HTTP 404 on two checks; automatically bypassed per user policy"})
+                selected = queue.next_row(root, excluded_rows=[
+                    item["selected"]["csv_row"] for item in result["skipped_sources"]])
+                result["selected"] = selected
+                continue
             recipe = recipe_for(root, selected)
             if recipe is None:
                 raise t.Invalid("No reviewed Python recipe; manually adapt one developer skill and add behavior tests")
@@ -144,10 +176,12 @@ def evaluate(root, client=None):
             candidate, checks = evaluate_recipe(root, recipe, client)
             result.update(status="ready", candidate_id=candidate["id"],
                 artifact_sha256=recipe["artifact_sha256"], checks=checks, reason="Recipe and checks passed")
+            break
     except (ValueError, RuntimeError, OSError, subprocess.SubprocessError) as error:
         result["reason"] = safe_reason(str(error))
     t.write_json(root / "tmp/cloud-result.json", result)
-    print(json.dumps({"status": result["status"], "reason": result["reason"]}))
+    print(json.dumps({"status": result["status"], "reason": result["reason"],
+        "unavailable_rows": len(result["skipped_sources"])}))
     return result
 
 
@@ -273,7 +307,9 @@ def report(root, result):
         if published:
             item["publication"] = result["publication"]
     return {"manual_intervention": None if published else {"name": selected.get("name", "Queue"),
-        "csv_row": selected.get("csv_row"), "repository": selected.get("repository"), "reason": result["reason"]},
+        "csv_row": selected.get("csv_row"), "repository": selected.get("repository"), "reason": result["reason"],
+        "label": "Continuing tomorrow" if result["status"] == "deferred" else "Manual intervention"},
+        "unavailable_rows": [item["selected"]["csv_row"] for item in result.get("skipped_sources", [])],
         "run_id": "cloud-" + result["date"] + "-" + os.environ.get("GITHUB_RUN_ID", "local"),
         "date": result["date"], "duration_seconds": max(0, time.time() - result["started_at"]),
         "measurement_scope": "Python cloud run; no LLM usage", "repositories_discovered": 0,
@@ -284,10 +320,24 @@ def report(root, result):
 
 def finalize(root, result, client=None):
     selected = queue.next_row(root)
-    if result.get("schema_version") != 1 or result["selected"] != selected or result["date"] != date_ist():
+    if result.get("schema_version") != 1 or result.get("initial_selected", result["selected"]) != selected or result["date"] != date_ist():
         raise t.Invalid("Stale/wrong queue result; refuse publication and state changes")
     if os.environ.get("GITHUB_SHA") and result["base_commit"] != os.environ["GITHUB_SHA"]:
         raise t.Invalid("Evaluation belongs to a different control commit")
+    skipped = result.get("skipped_sources", [])
+    excluded = []
+    # Validate the entire proposed advancement before touching durable queue state.
+    for item in skipped:
+        if item["selected"] != queue.next_row(root, excluded_rows=excluded) or item.get("checks") != 2:
+            raise t.Invalid("Skipped source order/evidence mismatch")
+        if item["reason"] != "Source unavailable: GitHub HTTP 404 on two checks; automatically bypassed per user policy":
+            raise t.Invalid("Only confirmed inaccessible sources can be bypassed automatically")
+        excluded.append(item["selected"]["csv_row"])
+    if len(skipped) > MAX_UNAVAILABLE_ROWS or result["selected"] != queue.next_row(root, excluded_rows=excluded):
+        raise t.Invalid("Selected row differs from ordered skip result")
+    for item in skipped:
+        queue.mark(root, item["selected"]["csv_row"], "blocked", reason=item["reason"])
+    selected = queue.next_row(root)
     if result["status"] == "ready":
         try:
             recipe = recipe_for(root, selected)

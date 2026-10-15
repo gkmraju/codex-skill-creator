@@ -26,13 +26,13 @@ def load_queue(root):
         raise ValueError("Expected Name, Approx_Stars, GitHub_Link columns")
     return policy, state, list(reader)
 
-def next_row(root=ROOT):
+def next_row(root=ROOT, excluded_rows=()):
     policy, state, rows = load_queue(root)
     for index, row in enumerate(rows, 2):
         progress = state["rows"].get(str(index), {})
         if not isinstance(progress, dict) or progress.get("status", "pending") not in STATUSES:
             raise ValueError("Invalid status for CSV row "+str(index))
-        if progress.get("status") in {"completed", "blocked", "skipped"}:
+        if index in excluded_rows or progress.get("status") in {"completed", "blocked", "skipped"}:
             continue
         parsed = urlsplit(row["GitHub_Link"])
         if (parsed.scheme != "https" or parsed.netloc != "github.com"
