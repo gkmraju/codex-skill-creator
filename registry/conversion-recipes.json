@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "recipes": [
+    {
+      "id": "animation-performance-v1",
+      "repository": "https://github.com/emilkowalski/skills",
+      "candidate_id": "emil-animation-performance",
+      "revision": "2d228630ba1446365f614a108cb8252f1feda202",
+      "artifact_sha256": "e296781d9a9436520ea2e5886b7ae51c1ae04b61b86e9c1d690371647b0c36b2",
+      "method": "replace-with-reviewed-single-skill-tree",
+      "review_scope": "Previously reviewed and published exact conversion; regression recipe only. Row 4 remains completed.",
+      "checks": [
+        {
+          "name": "fresh installer and refusal paths",
+          "scope": "installation",
+          "argv": [
+            "python",
+            "-B",
+            "-m",
+            "unittest",
+            "discover",
+            "-s",
+            "skills/animation-performance/tests",
+            "-p",
+            "test_install.py",
+            "-v"
+          ]
+        },
+        {
+          "name": "interactive fixtures and reduced motion",
+          "scope": "behavior",
+          "argv": [
+            "node",
+            "skills/animation-performance/tests/browser.cjs"
+          ]
+        }
+      ],
+      "checkout_eol": "crlf"
+    }
+  ]
+}

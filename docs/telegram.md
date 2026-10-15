@@ -1,6 +1,6 @@
 # Compact Telegram report
 
-Credentials stay in the ignored .env.telegram file. Existing configured values and delivery receipts are preserved. Template and sender: skill_migration/telegram.py; message header: CODEX SKILL LAB.
+Cloud delivery uses encrypted GitHub Actions secrets TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID; local credentials stay in the ignored .env.telegram file. Existing configured values and delivery receipts are preserved. Template and sender: skill_migration/telegram.py; message header: CODEX SKILL LAB.
 
 Preview/send an actual dated run JSON:
 
@@ -16,3 +16,5 @@ Published entries require publication.repository_url, commit_sha, ci_conclusion=
 Delivery requires --send and enabled valid env configuration. Credentials/destination IDs are never printed. Ignored evidence/telegram/ receipts prevent blind retries after uncertain delivery; inspect an existing attempt before retrying. Archived historical reports remain historical.
 
 A pending or blocked conversion is reported as unfinished. Future reports target software developers; estimated impact is never presented as measured adoption or savings.
+
+Python-only cloud reports count inaccessible/unselected sources as zero skills reviewed. Intervention messages include the CSV row, source and required repair. Public notification reservations and daily deduplication prevent blind retries; private receipts/destination IDs are never committed. See docs/cloud-runner.md.

@@ -94,6 +94,14 @@ def render(report):
             lines += ["\U0001f6a7 Not release-ready. " + brief(item["limitations"], 110)]
             source = item["links"][0]
             lines.append('<a href="' + html.escape(source["url"], quote=True) + '">' + brief(source["label"], 45) + "</a>")
+    manual = report.get("manual_intervention")
+    if manual and not ordered:
+        row = manual.get("csv_row")
+        lines += ["", "\U0001f6a7 <b>Manual intervention</b>",
+                  (f"CSV row {row}: " if row else "") + brief(manual["name"], 80),
+                  brief(manual["reason"], 220)]
+        if manual.get("repository"):
+            lines.append('<a href="' + html.escape(manual["repository"], quote=True) + '">Source repository</a>')
     if not published:
         lines += ["\u27a1 " + brief(report["next_step"], 100)]
     message = "\n".join(lines)

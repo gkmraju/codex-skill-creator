@@ -9,7 +9,7 @@
 [![Daily: 07:00 IST](https://img.shields.io/badge/daily-07%3A00_IST-f59e0b?style=flat-square)](docs/daily-workflow.md)
 [![Validate](https://github.com/gkmraju/codex-skill-creator/actions/workflows/validate.yml/badge.svg)](https://github.com/gkmraju/codex-skill-creator/actions/workflows/validate.yml)
 
-[Source queue](registry/claude_only_skills_with_stars.csv) · [Workflow](docs/daily-workflow.md) · [Current checkpoint](STATUS.md) · [Telegram](docs/telegram.md)
+[Source queue](registry/claude_only_skills_with_stars.csv) · [Workflow](docs/daily-workflow.md) · [Cloud setup](docs/cloud-runner.md) · [Current checkpoint](STATUS.md) · [Telegram](docs/telegram.md)
 
 </div>
 
@@ -24,7 +24,9 @@ The queue is already screened by the user. Its original order and approximate st
 ```mermaid
 flowchart LR
     A["Next unused CSV row"] --> B["Select a developer skill"]
-    B --> C["Convert for Codex"]
+    B --> R{"Reviewed recipe?"}
+    R -->|Yes| C["Reconstruct Codex conversion"]
+    R -->|No| M["Telegram · manual adaptation"]
     C --> D["Test and verify installation"]
     D --> E["Create upstream fork"]
     E --> F["Publish and pass CI"]
@@ -36,12 +38,12 @@ flowchart LR
 | Stage | Result |
 | :--- | :--- |
 | **Pick** | One pending or resumable row; no repeated discovery |
-| **Convert** | Codex instructions, working resources and installation |
+| **Convert** | Reviewed Python recipe reconstructs Codex instructions and resources |
 | **Verify** | License/provenance, actual behavior and release evidence |
 | **Fork & publish** | gkmraju/codex-skill-<slug>, source lineage retained, successful CI |
 | **Record** | Durable queue progress and a compact Telegram report |
 
-A row becomes **completed only after publication and successful CI**. Interrupted work resumes from its checkpoint. Unsuitable or blocked sources retain their reasons.
+A row becomes **completed only after publication and successful CI**. Unsupported conversions stay unfinished and request manual intervention through Telegram. Repaired rows resume from their checkpoint.
 
 ## Run locally
 
@@ -78,15 +80,24 @@ See the [workflow](docs/daily-workflow.md) for skipped/blocked rows and publicat
 | reports/ | Concise current run reports |
 | [archive/](archive/README.md) | Recoverable historical work; excluded from daily context |
 
-## Built to spend fewer tokens
+## Runs on GitHub. No LLM required.
 
-A **fresh standalone run at 07:00 IST** reads one queue row and a small checkpoint. No broad discovery, star refresh or fresh Codex-equivalence search. Scripts handle repeatable mechanics; tests focus on changed behavior, and independent evaluation is reserved for meaningful complexity.
+One Python workflow requests a daily run at **07:00 IST** on GitHub-hosted Ubuntu.
+Your PC and Codex desktop app can be off. No OpenAI key or model calls are needed.
+GitHub scheduling can be delayed; exact start times are not guaranteed.
 
-The schedule uses the existing configured model with medium reasoning. Each run stops after one successful skill. A daily release is a target; unfinished work is reported honestly.
+Python handles the CSV, pinned source checks, reviewed replacement recipes, behavior tests,
+actual forks, successful CI, durable checkpoints and Telegram reporting. A new unsupported
+skill needs a manual adaptation/review and recipe before automatic publication.
+The initial recipe reproduces the previously published animation skill; it does not approve
+unreviewed remaining rows. A daily release is a target, not a guarantee.
+
+[Setup, secrets and manual intervention](docs/cloud-runner.md) ·
+[Daily GitHub workflow](.github/workflows/daily-migration.yml)
 
 ## Telegram delivery
 
-Keep credentials in the ignored .env.telegram file. The existing **CODEX SKILL LAB** report includes the skill, developer benefit, essential verification, measured duration and repository link.
+GitHub runs use encrypted Actions secrets. The ignored .env.telegram file remains available for local use. The existing **CODEX SKILL LAB** report includes the skill, developer benefit, essential verification, measured duration and repository link.
 
 [Template and sender](skill_migration/telegram.py) · [Configuration](docs/telegram.md)
 
