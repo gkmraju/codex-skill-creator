@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-16",
+  "started_at": 1792131051.094546,
+  "base_commit": "3a37b6adc2d6d9b9600a787819f45635225b7836",
+  "run_id": "38859735849",
+  "initial_selected": {
+    "csv_row": 8,
+    "name": "claude-seo",
+    "approx_stars": "18500",
+    "repository": "https://github.com/claude-seo/claude-seo",
+    "screening": "accepted user curation; no fresh equivalence search",
+    "audience": "software developers only",
+    "progress": {}
+  },
+  "selected": {
+    "csv_row": 10,
+    "name": "MiniMax-AI/skills",
+    "approx_stars": "12600",
+    "repository": "https://github.com/MiniMax-AI/skills",
+    "screening": "accepted user curation; no fresh equivalence search",
+    "audience": "software developers only",
+    "progress": {}
+  },
+  "skipped_sources": [
+    {
+      "selected": {
+        "csv_row": 8,
+        "name": "claude-seo",
+        "approx_stars": "18500",
+        "repository": "https://github.com/claude-seo/claude-seo",
+        "screening": "accepted user curation; no fresh equivalence search",
+        "audience": "software developers only",
+        "progress": {}
+      },
+      "checks": 2,
+      "reason": "Source unavailable: GitHub HTTP 404 on two checks; automatically bypassed per user policy"
+    },
+    {
+      "selected": {
+        "csv_row": 9,
+        "name": "Google-Agent-Skills",
+        "approx_stars": "13500",
+        "repository": "https://github.com/Google/agent-skills",
+        "screening": "accepted user curation; no fresh equivalence search",
+        "audience": "software developers only",
+        "progress": {}
+      },
+      "checks": 2,
+      "reason": "Source unavailable: GitHub HTTP 404 on two checks; automatically bypassed per user policy"
+    }
+  ],
+  "status": "intervention",
+  "checks": [],
+  "reason": "No supported automatic developer runtime skill found (currently polars, networkx, simpy)"
+}

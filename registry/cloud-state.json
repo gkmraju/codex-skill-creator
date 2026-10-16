@@ -5,6 +5,11 @@
       "run_id": "38781951666",
       "status": "published",
       "report": "reports/cloud/2026-10-15/38781951666/run.json"
+    },
+    "2026-10-16": {
+      "run_id": "38859735849",
+      "status": "intervention",
+      "report": "reports/cloud/2026-10-16/38859735849/run.json"
     }
   }
 }
