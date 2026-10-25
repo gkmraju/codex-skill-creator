@@ -50,6 +50,11 @@
       "run_id": "40069520149",
       "status": "intervention",
       "report": "reports/cloud/2026-10-24/40069520149/run.json"
+    },
+    "2026-10-25": {
+      "run_id": "40169587310",
+      "status": "intervention",
+      "report": "reports/cloud/2026-10-25/40169587310/run.json"
     }
   }
 }
