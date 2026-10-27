@@ -1,0 +1,19 @@
+{
+  "manual_intervention": {
+    "name": "MiniMax-AI/skills",
+    "csv_row": 10,
+    "repository": "https://github.com/MiniMax-AI/skills",
+    "reason": "No supported automatic developer runtime skill found (currently polars, networkx, simpy)",
+    "label": "Manual intervention"
+  },
+  "unavailable_rows": [],
+  "run_id": "cloud-2026-10-27-40462308673",
+  "date": "2026-10-27",
+  "duration_seconds": 18.080806016921997,
+  "measurement_scope": "Python cloud run; no LLM usage",
+  "repositories_discovered": 0,
+  "skills_reviewed": 0,
+  "migrations_completed": 0,
+  "skills": [],
+  "next_step": "No supported automatic developer runtime skill found (currently polars, networkx, simpy)"
+}
