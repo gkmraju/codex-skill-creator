@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-06",
+  "started_at": 1793953187.286902,
+  "base_commit": "efb4e738d7520488f8b4599d3db3b096793af607",
+  "run_id": "42186862627",
+  "initial_selected": {
+    "csv_row": 10,
+    "name": "MiniMax-AI/skills",
+    "approx_stars": "12600",
+    "repository": "https://github.com/MiniMax-AI/skills",
+    "screening": "accepted user curation; no fresh equivalence search",
+    "audience": "software developers only",
+    "progress": {
+      "status": "in-progress",
+      "source_repository": "https://github.com/MiniMax-AI/skills",
+      "reason": "No supported automatic developer runtime skill found (currently polars, networkx, simpy)"
+    }
+  },
+  "selected": {
+    "csv_row": 10,
+    "name": "MiniMax-AI/skills",
+    "approx_stars": "12600",
+    "repository": "https://github.com/MiniMax-AI/skills",
+    "screening": "accepted user curation; no fresh equivalence search",
+    "audience": "software developers only",
+    "progress": {
+      "status": "in-progress",
+      "source_repository": "https://github.com/MiniMax-AI/skills",
+      "reason": "No supported automatic developer runtime skill found (currently polars, networkx, simpy)"
+    }
+  },
+  "skipped_sources": [],
+  "status": "intervention",
+  "checks": [],
+  "reason": "No supported automatic developer runtime skill found (currently polars, networkx, simpy)"
+}
