@@ -135,6 +135,11 @@
       "run_id": "42784721833",
       "status": "intervention",
       "report": "reports/cloud/2026-11-10/42784721833/run.json"
+    },
+    "2026-11-11": {
+      "run_id": "42984312871",
+      "status": "intervention",
+      "report": "reports/cloud/2026-11-11/42984312871/run.json"
     }
   }
 }
