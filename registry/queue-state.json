@@ -57,7 +57,7 @@
     "10": {
       "status": "in-progress",
       "source_repository": "https://github.com/MiniMax-AI/skills",
-      "reason": "GitHub HTTP 403: GET /repos/MiniMax-AI/skills"
+      "reason": "No supported automatic developer runtime skill found (currently polars, networkx, simpy)"
     }
   }
 }
